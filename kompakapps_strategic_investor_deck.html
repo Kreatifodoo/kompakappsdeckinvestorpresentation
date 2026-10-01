@@ -1,0 +1,2183 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KompakApps - Strategic Investor Seed Deck</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: #ECEFF3;
+      color: #0F172A;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 60px;
+    }
+    .deck-container {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 20px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+    }
+    /* Executive Slide Canvas */
+    .mckinsey-slide {
+      width: 100%;
+      min-height: 720px;
+      background: #FFFFFF;
+      border: 1px solid #D8E0E9;
+      border-radius: 4px;
+      box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06);
+      padding: 36px 44px 28px 44px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+      page-break-after: always;
+      break-after: page;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+    .deck-toolbar {
+      position: sticky;
+      top: 10px;
+      z-index: 50;
+      background: #FFFFFF;
+      border: 1px solid #CBD5E1;
+      border-radius: 6px;
+      padding: 10px 20px;
+      margin: 0 auto 16px auto;
+      max-width: 1240px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .mckinsey-btn {
+      background: #1392C6;
+      color: #FFFFFF;
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+      padding: 6px 16px;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.15s ease;
+    }
+    .mckinsey-btn:hover {
+      background: #0E7AA6;
+    }
+    .lang-toggle-box {
+      display: inline-flex;
+      border: 1px solid #CBD5E1;
+      border-radius: 4px;
+      overflow: hidden;
+      background: #F8FAFC;
+    }
+    .lang-btn {
+      padding: 4px 12px;
+      font-size: 11px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      background: transparent;
+      color: #64748B;
+      transition: all 0.15s ease;
+    }
+    .lang-btn.active {
+      background: #1392C6;
+      color: #FFFFFF;
+    }
+    .consulting-card {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 4px;
+      padding: 18px 20px;
+    }
+    .consulting-card-top-blue {
+      border-top: 3px solid #1392C6;
+    }
+    .consulting-card-top-navy {
+      border-top: 3px solid #0F172A;
+    }
+    .consulting-card-top-amber {
+      border-top: 3px solid #D97706;
+    }
+    .consulting-card-top-green {
+      border-top: 3px solid #059669;
+    }
+    .kicker-tag {
+      font-size: 10.5px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #1392C6;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .action-headline {
+      font-size: 22px;
+      font-weight: 800;
+      color: #0F172A;
+      line-height: 1.25;
+      margin-bottom: 6px;
+    }
+    .sub-lead {
+      font-size: 13px;
+      color: #475569;
+      line-height: 1.5;
+    }
+    .mckinsey-takeaway {
+      background: #F8FAFC;
+      border-left: 3.5px solid #1392C6;
+      padding: 10px 14px;
+      border-radius: 0 4px 4px 0;
+      margin-top: 14px;
+    }
+    .source-footnote {
+      font-size: 9.5px;
+      color: #94A3B8;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #EEF2F6;
+      padding-top: 8px;
+      margin-top: 12px;
+    }
+    .table-container {
+      width: 100%;
+      overflow-x: auto;
+      border: 1px solid #E2E8F0;
+      border-radius: 4px;
+    }
+    @media (max-width: 820px) {
+      .mckinsey-slide {
+        min-height: auto;
+        padding: 24px 18px;
+      }
+      .action-headline {
+        font-size: 18px;
+      }
+      .sub-lead {
+        font-size: 12px;
+      }
+    }
+    @media print {
+      @page {
+        size: 16in 9in landscape;
+        margin: 0 !important;
+      }
+      html, body {
+        width: 16in !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: #FFFFFF !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .deck-toolbar {
+        display: none !important;
+      }
+      .deck-container {
+        width: 100% !important;
+        max-width: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        gap: 0 !important;
+      }
+      .mckinsey-slide {
+        width: 16in !important;
+        height: 9in !important;
+        min-height: 9in !important;
+        max-height: 9in !important;
+        padding: 0.45in 0.6in 0.35in 0.6in !important;
+        margin: 0 !important;
+        border: none !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        page-break-before: always !important;
+        page-break-after: always !important;
+        break-before: page !important;
+        break-after: page !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        overflow: hidden !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+      }
+      .mckinsey-slide:first-child {
+        page-break-before: avoid !important;
+        break-before: avoid !important;
+      }
+      canvas {
+        max-width: 100% !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Strategy Deck Navigation Toolbar -->
+  <div class="deck-toolbar">
+    <div style="display:flex; align-items:center; gap:12px;">
+      <div style="width:26px; height:26px; border-radius:4px; background:#1392C6; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+        <svg viewBox="0 0 100 100" style="width:78%; height:78%;" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M32.5 27.5H43.5V72.5C37.5 72.5 32.5 62 32.5 50V27.5Z" fill="white"/>
+          <path d="M47.5 46.5C47.5 33 55 27.5 67.5 27.5C67.5 41 59.5 46.5 47.5 46.5Z" fill="white"/>
+          <path d="M47.5 53.5C59.5 53.5 67.5 59 67.5 72.5H47.5V53.5Z" fill="white"/>
+        </svg>
+      </div>
+      <div>
+        <span style="font-weight:900; font-size:13.5px; letter-spacing:0.4px; color:#0F172A;">KOMPAK<span style="color:#1392C6;">APPS</span></span>
+        <span style="font-size:11.5px; color:#64748B; margin-left:6px;" id="toolbarSubtitle">| Dokumen Rahasia Presentasi Investor &bull; Memorandum Eksekutif</span>
+      </div>
+    </div>
+    <div style="display:flex; align-items:center; gap:12px;">
+      <div class="lang-toggle-box">
+        <button id="btnDeckEn" class="lang-btn" onclick="switchSlideLanguage('en')">EN</button>
+        <button id="btnDeckId" class="lang-btn active" onclick="switchSlideLanguage('id')">ID</button>
+      </div>
+      <button class="mckinsey-btn" onclick="window.print()">
+        <i class="fa-solid fa-print"></i> <span id="deckPrintLabel">Ekspor ke PDF (16:9 Landscape)</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="deck-container">
+
+    <!-- SLIDE 1: COVER & MANDATE -->
+    <div class="mckinsey-slide" id="slide1">
+      <div style="border-bottom:1px solid #E2E8F0; padding-bottom:16px; display:flex; justify-content:space-between; align-items:flex-start;">
+        <div>
+          <span class="kicker-tag" data-i18n="s1Kicker">Memorandum Eksekutif &bull; Horizon Investasi Putaran Seed</span>
+          <h1 class="action-headline" style="font-size:28px;" data-i18n="s1Title">KompakApps: Sistem Operasi Mobile Frontline Terpadu Korporasi Indonesia</h1>
+          <p class="sub-lead" data-i18n="s1Sub">Memaksimalkan investasi Odoo ERP yang sudah berjalan bertahun-tahun dengan fungsi frontline mobile terpadu berbiaya terjangkau.</p>
+        </div>
+        <div style="text-align:right;">
+          <span style="font-size:10px; font-weight:800; background:#F1F5F9; color:#334155; padding:4px 8px; border:1px solid #CBD5E1; border-radius:3px; display:inline-block;" data-i18n="s1Badge">RAHASIA &bull; SEED ROUND V6.0</span>
+          <span style="display:block; font-size:10.5px; color:#64748B; margin-top:4px;">Slide 01 of 22</span>
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1.5fr 1fr; gap:24px; margin:22px 0; align-items:center;">
+        <div>
+          <h3 style="font-size:15px; font-weight:800; color:#0F172A; margin-bottom:10px;" data-i18n="s1ThesisHead">Tesis Strategis: 80% Sasaran Pasar dari Klien Eksisting Odoo</h3>
+          <p style="font-size:12.5px; color:#475569; line-height:1.7; margin-bottom:12px;" data-i18n="s1ThesisBody">
+            Ratusan korporasi telah menginvestasikan miliaran rupiah pada sistem Odoo ERP selama bertahun-tahun, namun operasional garis depan di sektor distribusi, logistik, dan industri jasa lapangan masih terputus oleh mesin absen fisik dan formulir kertas manual. Seed funding ini digunakan untuk mengonversi basis klien Odoo eksisting (80% target) menjadi langganan SaaS KompakApps—memberikan nilai tambah (*added value*) maksimal dengan biaya lisensi yang sangat ekonomis.
+          </p>
+          <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:10px;">
+            <div style="background:#F8FAFC; border:1px solid #E2E8F0; padding:10px; border-radius:4px;">
+              <strong style="font-size:11px; color:#1392C6; display:block;" data-i18n="s1P1Title">Platform 6-in-1</strong>
+              <span style="font-size:10.5px; color:#64748B;" data-i18n="s1P1Desc">Absensi, cuti, klaim, payroll, CRM sales, PR barang.</span>
+            </div>
+            <div style="background:#F8FAFC; border:1px solid #E2E8F0; padding:10px; border-radius:4px;">
+              <strong style="font-size:11px; color:#1392C6; display:block;" data-i18n="s1P2Title">Arsitektur Offline-First</strong>
+              <span style="font-size:10.5px; color:#64748B;" data-i18n="s1P2Desc">SQLite lokal terenkripsi dengan sinkronisasi otomatis.</span>
+            </div>
+            <div style="background:#F8FAFC; border:1px solid #E2E8F0; padding:10px; border-radius:4px;">
+              <strong style="font-size:11px; color:#1392C6; display:block;" data-i18n="s1P3Title">80% Klien Odoo Eksisting</strong>
+              <span style="font-size:10.5px; color:#64748B;" data-i18n="s1P3Desc">Distribusi captive via PT Global Kreatif Inovasi (Odoo Gold Partner).</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:#F8FAFC; border:1.5px solid #CBD5E1; border-radius:4px; padding:18px;">
+          <span style="font-size:10px; font-weight:800; letter-spacing:0.5px; color:#64748B; text-transform:uppercase; display:block; margin-bottom:10px;" data-i18n="s1TermBoxTitle">Metrik Kunci Investasi</span>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+            <div style="border-bottom:1px solid #E2E8F0; padding-bottom:8px;">
+              <span style="font-size:10.5px; color:#64748B; display:block;" data-i18n="s1M1Label">Target Pendanaan Seed</span>
+              <strong style="font-size:19px; color:#1392C6;" data-i18n="val_5_4B">Rp5,40 Miliar</strong>
+              <span style="font-size:9.5px; color:#64748B; display:block;" data-i18n="s1DrawDesc">Rp150 Juta / bln &times; 36 bln</span>
+            </div>
+            <div style="border-bottom:1px solid #E2E8F0; padding-bottom:8px;">
+              <span style="font-size:10.5px; color:#64748B; display:block;" data-i18n="s1M2Label">Porsi Ekuitas</span>
+              <strong style="font-size:19px; color:#0F172A;" data-i18n="val_equity_pct">20,0% Saham</strong>
+              <span style="font-size:9.5px; color:#64748B; display:block;" data-i18n="val_pre_21_6B">Pre-money: Rp21,60 Miliar</span>
+            </div>
+            <div>
+              <span style="font-size:10.5px; color:#64748B; display:block;" data-i18n="s1M3Label">Target ARR Tahun ke-3</span>
+              <strong style="font-size:19px; color:#0284C7;" data-i18n="val_7_32B">Rp7,32 Miliar</strong>
+              <span style="font-size:9.5px; color:#64748B; display:block;" data-i18n="s1LogosDesc">122 Perusahaan Aktif</span>
+            </div>
+            <div>
+              <span style="font-size:10.5px; color:#64748B; display:block;" data-i18n="s1M4Label">Surplus Kas Tahun ke-3</span>
+              <strong style="font-size:19px; color:#D97706;" data-i18n="val_13_58B">Rp13,58 Miliar</strong>
+              <span style="font-size:9.5px; color:#64748B; display:block;" data-i18n="s1CashSub">Kas Akumulatif Pelanggan</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="source-footnote">
+        <span>KompakApps Management Information Memorandum &bull; Prepared for Investor Consideration</span>
+        <span>Exhibit 1 &bull; Executive Mandate</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 2: TRANSACTION & FINANCIAL STRUCTURE -->
+    <div class="mckinsey-slide" id="slide2">
+      <div>
+        <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+          <div>
+            <span class="kicker-tag" data-i18n="s2Kicker">Arsitektur Transaksi &bull; Ringkasan Eksekutif</span>
+            <h2 class="action-headline" data-i18n="s2Headline">Pencairan Rp150 Juta per bulan mengunci pagu OPEX; pendapatan pelanggan memperkuat cadangan kas</h2>
+            <p class="sub-lead" data-i18n="s2Sub">Modal seed distrukturkan sebagai fasilitas operasional terprediksi, melindungi nilai ekuitas pemegang saham.</p>
+          </div>
+          <span style="font-size:11px; font-weight:700; color:#64748B;">Slide 02 / 22</span>
+        </div>
+
+        <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:14px; margin-top:20px;">
+          <div class="consulting-card consulting-card-top-blue">
+            <span style="font-size:10px; font-weight:800; color:#64748B; text-transform:uppercase;" data-i18n="s2Box1Title">KOMITMEN DANA SEED</span>
+            <div style="font-size:22px; font-weight:900; color:#1392C6; margin:6px 0;" data-i18n="val_5_4B">Rp5,40 Miliar</div>
+            <p style="font-size:11.5px; color:#475569; line-height:1.5;" data-i18n="s2Box1Desc">Komitmen modal ekuitas dicairkan bertahap Rp150 Juta per bulan selama 36 bulan.</p>
+          </div>
+          <div class="consulting-card consulting-card-top-navy">
+            <span style="font-size:10px; font-weight:800; color:#64748B; text-transform:uppercase;" data-i18n="s2Box2Title">VALUASI EKUITAS</span>
+            <div style="font-size:22px; font-weight:900; color:#0F172A; margin:6px 0;" data-i18n="val_equity_pct">20,0% Saham</div>
+            <p style="font-size:11.5px; color:#475569; line-height:1.5;" data-i18n="s2Box2Desc">Valuasi pre-money Rp21,60 Miliar; valuasi post-money fully diluted Rp27,00 Miliar.</p>
+          </div>
+          <div class="consulting-card consulting-card-top-navy">
+            <span style="font-size:10px; font-weight:800; color:#64748B; text-transform:uppercase;" data-i18n="s2Box3Title">TARGET ACV TAHUNAN</span>
+            <div style="font-size:22px; font-weight:900; color:#0284C7; margin:6px 0;" data-i18n="val_60M">Rp60 Juta</div>
+            <p style="font-size:11.5px; color:#475569; line-height:1.5;" data-i18n="s2Box3Desc">Paket standar enterprise hingga ~200 karyawan frontline dengan retensi perpanjangan 80%.</p>
+          </div>
+          <div class="consulting-card consulting-card-top-amber">
+            <span style="font-size:10px; font-weight:800; color:#64748B; text-transform:uppercase;" data-i18n="s2Box4Title">KAS NERACA TAHUN KE-3</span>
+            <div style="font-size:22px; font-weight:900; color:#D97706; margin:6px 0;" data-i18n="val_13_58B">Rp13,58 Miliar</div>
+            <p style="font-size:11.5px; color:#475569; line-height:1.5;" data-i18n="s2Box4Desc">Seluruh pendapatan pelanggan disimpan di kas perusahaan untuk membangun likuiditas kuat.</p>
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1.6fr; gap:14px; margin-top:14px;">
+          <div style="background:#F1F5F9; border:1px solid #CBD5E1; border-radius:4px; padding:12px 14px;">
+            <span style="font-size:10px; font-weight:800; text-transform:uppercase; color:#475569; display:block; margin-bottom:4px;" data-i18n="s2TrailingTitle">BUKTI VALIDASI AWAL (TRAILING)</span>
+            <strong style="font-size:15px; color:#0F172A; display:block;" data-i18n="s2TrailingVal">Rp240 Juta (4 Implementasi)</strong>
+            <p style="font-size:11px; color:#64748B; line-height:1.4; margin-top:3px;" data-i18n="s2TrailingDesc">
+              Validasi operasional dan teknis lapangan di sektor distribusi logistik, trading, retail multi-cabang, dan jasa.
+            </p>
+          </div>
+          <div style="background:#EFF9FD; border:1.5px solid #1392C6; border-radius:4px; padding:12px 16px; display:flex; justify-content:space-between; align-items:center;">
+            <div>
+              <span style="font-size:10px; font-weight:800; text-transform:uppercase; color:#0E7AA6; display:block;" data-i18n="s2ForwardTitle">KELIPATAN VALUASI MASUK INVESTOR (FORWARD MULTIPLE)</span>
+              <div style="display:flex; gap:18px; margin-top:4px;">
+                <div>
+                  <span style="font-size:10.5px; color:#64748B;" data-i18n="s2Y1MultipleLabel">Kelipatan ARR Tahun 1:</span>
+                  <strong style="font-size:17px; color:#1392C6; display:block;">7,2&times; <span style="font-size:11px; font-weight:600; color:#64748B;" data-i18n="s2Y1Calc">(Rp21,60M / Rp3,00M)</span></strong>
+                </div>
+                <div>
+                  <span style="font-size:10.5px; color:#64748B;" data-i18n="s2Y3MultipleLabel">Kelipatan ARR Tahun 3:</span>
+                  <strong style="font-size:17px; color:#059669; display:block;">2,9&times; <span style="font-size:11px; font-weight:600; color:#64748B;" data-i18n="s2Y3Calc">(Rp21,60M / Rp7,32M)</span></strong>
+                </div>
+              </div>
+            </div>
+            <div style="text-align:right; font-size:10.5px; color:#0E7AA6; max-width:180px; line-height:1.3; font-weight:600;" data-i18n="s2BenchmarkNote">
+              Terdiskon menarik dibanding median SaaS Asia Tenggara (10&times;&ndash;12&times; ARR).
+            </div>
+          </div>
+        </div>
+
+        <div class="mckinsey-takeaway">
+          <strong style="color:#0F172A; font-size:12px; display:block; margin-bottom:2px;" data-i18n="s2ThesisTitle">Implikasi Tata Kelola Strategis:</strong>
+          <p style="font-size:12px; color:#334155; line-height:1.5;" data-i18n="s2ThesisDesc">
+            Dengan menyelaraskan pencairan bulanan Rp150 Juta tepat pada batas atas OPEX tetap, risiko cash-burn tidak terkendali sepenuhnya dieliminasi. Pendapatan langganan klien masuk seutuhnya membangun cadangan kas neraca yang mandiri.
+          </p>
+        </div>
+      </div>
+
+      <div class="source-footnote">
+        <span>Source: KompakApps Financial Model &bull; Investment Term Sheet v6.0</span>
+        <span>Exhibit 2 &bull; Transaction Snapshot</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 3: LEADERSHIP & ODOO GOLD PARTNER MOAT -->
+    <div class="mckinsey-slide" id="slide3">
+      <div>
+        <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+          <div>
+            <span class="kicker-tag" data-i18n="s3Kicker">Kepemimpinan &bull; Founder-Market Fit</span>
+            <h2 class="action-headline" data-i18n="s3Headline">Dipimpin oleh praktisi 10 tahun industri ERP & B2B SaaS dengan 35+ implementasi korporat</h2>
+            <p class="sub-lead" data-i18n="s3Sub">Didukung PT Global Kreatif Inovasi (Official Odoo Gold Partner Indonesia, rating kepuasan 95%).</p>
+          </div>
+          <span style="font-size:11px; font-weight:700; color:#64748B;">Slide 03 / 22</span>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1.2fr 2.8fr; gap:18px; margin-top:18px; align-items:stretch;">
+          <div class="consulting-card" style="background:#F8FAFC; text-align:center; display:flex; flex-direction:column; justify-content:space-between;">
+            <div>
+              <div style="width:68px; height:68px; border-radius:50%; background:#1392C6; color:white; font-size:22px; font-weight:900; display:flex; align-items:center; justify-content:center; margin:0 auto 10px auto;">
+                KR
+              </div>
+              <h3 style="font-size:17px; font-weight:800; color:#0F172A;">Kiki Rizki</h3>
+              <span style="font-size:11.5px; font-weight:700; color:#0E7AA6; display:block; margin-bottom:8px;" data-i18n="s3FounderRole">Founder &amp; Chief Executive Officer</span>
+              <a href="https://www.linkedin.com/in/kiki-rizki-6b362877" target="_blank" style="display:inline-flex; align-items:center; gap:6px; font-size:11px; font-weight:700; color:#0A66C2; text-decoration:none; background:#FFFFFF; padding:4px 8px; border:1px solid #CBD5E1; border-radius:4px;">
+                <i class="fa-brands fa-linkedin"></i> linkedin.com/in/kiki-rizki
+              </a>
+            </div>
+            <div style="border-top:1px solid #E2E8F0; padding-top:10px; margin-top:10px; font-size:11px; text-align:left; color:#334155; line-height:1.7;">
+              <div>&bull; <strong data-i18n="s3Stat1">35+ Referensi Korporat Odoo Terverifikasi</strong></div>
+              <div>&bull; <strong data-i18n="s3Stat2">Tingkat Retensi &amp; Kepuasan Klien 95%</strong></div>
+              <div>&bull; <strong data-i18n="s3Stat3">Official Odoo Gold Partner Indonesia</strong></div>
+            </div>
+          </div>
+
+          <div style="display:flex; flex-direction:column; gap:10px; justify-content:space-between;">
+            <div class="consulting-card" style="padding:14px 16px;">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+                <strong style="color:#0F172A; font-size:12.5px;"><i class="fa-solid fa-briefcase text-[#1392C6]"></i> Ex-General Manager Sales Operations @ Deskera (2016 – 2019)</strong>
+                <span style="font-size:10px; font-weight:700; background:#EFF9FD; color:#0E7AA6; padding:2px 8px; border-radius:3px;">Pionir Cloud ERP SaaS</span>
+              </div>
+              <p style="font-size:11.5px; color:#475569; line-height:1.5;" data-i18n="s3DeskeraDesc">
+                Memimpin operasi komersial dan ekspansi pipeline salah satu platform Cloud ERP SaaS terkemuka di Asia Tenggara. Menguasai model unit economics recurring SaaS, ritme payback CAC, dan siklus penjualan enterprise.
+              </p>
+            </div>
+
+            <div class="consulting-card" style="padding:14px 16px;">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+                <strong style="color:#0F172A; font-size:12.5px;"><i class="fa-solid fa-gears text-[#1392C6]"></i> Managing Director @ PT Global Kreatif Inovasi (2019 – Present)</strong>
+                <span style="font-size:10px; font-weight:700; background:#FEF3C7; color:#B45309; padding:2px 8px; border-radius:3px; border:1px solid #FDE68A;"><i class="fa-solid fa-certificate"></i> Official Odoo Gold Partner</span>
+              </div>
+              <p style="font-size:11.5px; color:#475569; line-height:1.5;" data-i18n="s3KreatifDesc">
+                Membangun konsultan Odoo Gold Partner terkemuka di Indonesia (odoo.com/partners). Berhasil mengimplementasikan sistem ERP di 35+ korporasi besar (JakLingko, PT Metindo Erasakti, PT Muliapack, PT Bumipa Medika, Hasta Prada) dengan rating kepuasan 95%.
+              </p>
+            </div>
+
+            <div class="consulting-card" style="background:#F0FDF4; border:1px solid #BBF7D0; padding:12px 16px;">
+              <strong style="color:#15803D; font-size:12px; display:block; margin-bottom:2px;" data-i18n="s3MoatTitle">Target 80% Klien Odoo Eksisting:</strong>
+              <p style="font-size:11.5px; color:#166534; line-height:1.5;" data-i18n="s3MoatDesc">
+                KompakApps memecahkan masalah klien yang sudah memakai Odoo bertahun-tahun: <em>"Odoo hebat di back-office, tapi operasional distribusi dan jasa lapangan masih manual."</em> Basis klien eksisting ini menjadi target 80% adopsi dengan CAC mendekati nol.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:12px; margin-top:14px;">
+          <div class="consulting-card" style="padding:10px 14px;"><strong style="font-size:11px; color:#0F172A;" data-i18n="s3Pod1">Tim Engineering:</strong> <span style="font-size:11px; color:#64748B;">CTO, Backend Leads, Offline Sync</span></div>
+          <div class="consulting-card" style="padding:10px 14px;"><strong style="font-size:11px; color:#0F172A;" data-i18n="s3Pod2">Tim Produk &amp; AI:</strong> <span style="font-size:11px; color:#64748B;">Head of Product, Mobile UI/UX</span></div>
+          <div class="consulting-card" style="padding:10px 14px;"><strong style="font-size:11px; color:#0F172A;" data-i18n="s3Pod3">Tim GTM &amp; CS:</strong> <span style="font-size:11px; color:#64748B;">Enterprise SDRs, Onboarding Leads</span></div>
+        </div>
+      </div>
+
+      <div class="source-footnote">
+        <span>Source: Management Organization Chart &bull; Official Odoo Partner Directory (odoo.com/partners)</span>
+        <span>Exhibit 3 &bull; Operator Credibility</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 4: THE MARKET FRICTION (DISTRIBUTION & SERVICE INDUSTRY FOCUS) -->
+    <div class="mckinsey-slide" id="slide4">
+      <div>
+        <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+          <div>
+            <span class="kicker-tag" data-i18n="s4Kicker">Friksi Pasar &bull; Masalah Struktural</span>
+            <h2 class="action-headline" data-i18n="s4Headline">ERP konvensional gagal di operasional distribusi & jasa, mengisolasi 80% tenaga kerja garis depan</h2>
+            <p class="sub-lead" data-i18n="s4Sub">Driver logistik, sales kanvaser, dan teknisi lapangan terputus dari ERP pusat, memicu titik buta data dan keterlambatan rekonsiliasi.</p>
+          </div>
+          <span style="font-size:11px; font-weight:700; color:#64748B;">Slide 04 / 22</span>
+        </div>
+
+        <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:14px; margin-top:20px;">
+          <div class="consulting-card consulting-card-top-amber">
+            <div style="font-size:20px; color:#D97706; margin-bottom:8px;"><i class="fa-solid fa-truck-moving"></i></div>
+            <h4 style="font-size:13px; font-weight:800; color:#0F172A; margin-bottom:6px;" data-i18n="s4P1Title">Mesin Absen Fisik Tak Berguna Bagi Tim Bergerak</h4>
+            <p style="font-size:11.5px; color:#64748B; line-height:1.5;" data-i18n="s4P1Desc">
+              Driver distribusi, kurir pengiriman, dan teknisi servis bergerak setiap hari ke lokasi klien; mustahil kembali ke kantor cabang hanya untuk fingerprint.
+            </p>
+          </div>
+          <div class="consulting-card consulting-card-top-amber">
+            <div style="font-size:20px; color:#D97706; margin-bottom:8px;"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+            <h4 style="font-size:13px; font-weight:800; color:#0F172A; margin-bottom:6px;" data-i18n="s4P2Title">Surat Jalan, Bon BBM &amp; Tiket Servis Manual Kacau</h4>
+            <p style="font-size:11.5px; color:#64748B; line-height:1.5;" data-i18n="s4P2Desc">
+              Bukti pengiriman (POD), bon bensin/tol, dan laporan kunjungan servis dicatat manual di kertas, memicu rekap berulang dan dispute penagihan lambat.
+            </p>
+          </div>
+          <div class="consulting-card consulting-card-top-amber">
+            <div style="font-size:20px; color:#D97706; margin-bottom:8px;"><i class="fa-solid fa-warehouse"></i></div>
+            <h4 style="font-size:13px; font-weight:800; color:#0F172A; margin-bottom:6px;" data-i18n="s4P3Title">Aplikasi Cloud Macet di Gudang DC &amp; Site Klien</h4>
+            <p style="font-size:11.5px; color:#64748B; line-height:1.5;" data-i18n="s4P3Desc">
+              Aplikasi SaaS biasa langsung macet saat tim masuk distribution center (DC), area basement gedung klien, atau rute distribusi antarkota tanpa sinyal 4G.
+            </p>
+          </div>
+          <div class="consulting-card consulting-card-top-amber">
+            <div style="font-size:20px; color:#D97706; margin-bottom:8px;"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+            <h4 style="font-size:13px; font-weight:800; color:#0F172A; margin-bottom:6px;" data-i18n="s4P4Title">Biaya Lisensi ERP Terlalu Mahal untuk Tim Lapangan</h4>
+            <p style="font-size:11.5px; color:#64748B; line-height:1.5;" data-i18n="s4P4Desc">
+              Biaya lisensi ERP back-office terlalu mahal ($30–$70/user/bln) dan terlalu rumit untuk diberikan kepada puluhan hingga ratusan armada dan staf servis.
+            </p>
+          </div>
+        </div>
+
+        <div class="mckinsey-takeaway">
+          <strong style="color:#0F172A; font-size:12px; display:block; margin-bottom:2px;" data-i18n="s4SolutionHead">Solusi KompakApps:</strong>
+          <p style="font-size:12px; color:#334155; line-height:1.5;" data-i18n="s4SolutionText">
+            Menyatukan alur kerja mobile distribusi dan industri jasa lapangan ke dalam satu sistem operasi mobile offline-first yang tersinkronisasi otomatis ke Odoo ERP korporat.
+          </p>
+        </div>
+      </div>
+
+      <div class="source-footnote">
+        <span>Source: Indonesian Logistics &amp; Field Services Operational Survey &bull; Creative Solution Case Studies</span>
+        <span>Exhibit 4 &bull; Problem Landscape</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 5: 6-IN-1 MOBILE SUITE -->
+    <div class="mckinsey-slide" id="slide5">
+      <div>
+        <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+          <div>
+            <span class="kicker-tag" data-i18n="s5Kicker">Arsitektur Produk &bull; Kemampuan Operasional</span>
+            <h2 class="action-headline" data-i18n="s5Headline">Platform modular terpadu 6-in-1 mengeliminasi mesin absensi fisik dan beban administrasi</h2>
+            <p class="sub-lead" data-i18n="s5Sub">Eksekusi operasional komprehensif dikemas dalam satu aplikasi mobile di iOS dan Android.</p>
+          </div>
+          <span style="font-size:11px; font-weight:700; color:#64748B;">Slide 05 / 22</span>
+        </div>
+
+        <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:14px; margin-top:20px;">
+          <div class="consulting-card consulting-card-top-blue">
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
+              <div style="width:28px; height:28px; border-radius:4px; background:#EFF9FD; color:#1392C6; display:flex; align-items:center; justify-content:center; font-size:12px;"><i class="fa-solid fa-camera"></i></div>
+              <strong style="font-size:12.5px; color:#0F172A;" data-i18n="s5M1Title">Absensi GPS + Selfie</strong>
+            </div>
+            <p style="font-size:11.5px; color:#64748B; line-height:1.5;" data-i18n="s5M1Desc">Verifikasi selfie wajah, radius batas geofence kantor/site, deteksi mock-GPS, dan log audit anti titip absen.</p>
+          </div>
+          <div class="consulting-card consulting-card-top-blue">
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
+              <div style="width:28px; height:28px; border-radius:4px; background:#EFF9FD; color:#1392C6; display:flex; align-items:center; justify-content:center; font-size:12px;"><i class="fa-solid fa-calendar-check"></i></div>
+              <strong style="font-size:12.5px; color:#0F172A;" data-i18n="s5M2Title">Pengajuan Cuti &amp; Izin</strong>
+            </div>
+            <p style="font-size:11.5px; color:#64748B; line-height:1.5;" data-i18n="s5M2Desc">Alur persetujuan berjenjang real-time, kalkulasi saldo cuti otomatis, dan lampiran foto surat dokter.</p>
+          </div>
+          <div class="consulting-card consulting-card-top-blue">
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
+              <div style="width:28px; height:28px; border-radius:4px; background:#EFF9FD; color:#1392C6; display:flex; align-items:center; justify-content:center; font-size:12px;"><i class="fa-solid fa-receipt"></i></div>
+              <strong style="font-size:12.5px; color:#0F172A;" data-i18n="s5M3Title">Klaim Reimbursement</strong>
+            </div>
+            <p style="font-size:11.5px; color:#64748B; line-height:1.5;" data-i18n="s5M3Desc">Foto bukti struk dari HP, kategori biaya, pelacakan pencairan, dan sinkronisasi ke buku kas kecil.</p>
+          </div>
+          <div class="consulting-card consulting-card-top-blue">
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
+              <div style="width:28px; height:28px; border-radius:4px; background:#EFF9FD; color:#1392C6; display:flex; align-items:center; justify-content:center; font-size:12px;"><i class="fa-solid fa-money-check-dollar"></i></div>
+              <strong style="font-size:12.5px; color:#0F172A;" data-i18n="s5M4Title">Perhitungan Gaji Otomatis</strong>
+            </div>
+            <p style="font-size:11.5px; color:#64748B; line-height:1.5;" data-i18n="s5M4Desc">Kalkulasi otomatis dari jam kehadiran GPS, lembur, potongan telat, dan pajak; kirim slip gaji digital instan.</p>
+          </div>
+          <div class="consulting-card consulting-card-top-blue">
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
+              <div style="width:28px; height:28px; border-radius:4px; background:#EFF9FD; color:#1392C6; display:flex; align-items:center; justify-content:center; font-size:12px;"><i class="fa-solid fa-location-dot"></i></div>
+              <strong style="font-size:12.5px; color:#0F172A;" data-i18n="s5M5Title">CRM Penjualan Lapangan</strong>
+            </div>
+            <p style="font-size:11.5px; color:#64748B; line-height:1.5;" data-i18n="s5M5Desc">Check-in kunjungan klien berbasis lokasi, tahapan pipeline penjualan, catatan prospek, dan rute sales terverifikasi.</p>
+          </div>
+          <div class="consulting-card consulting-card-top-blue">
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
+              <div style="width:28px; height:28px; border-radius:4px; background:#EFF9FD; color:#1392C6; display:flex; align-items:center; justify-content:center; font-size:12px;"><i class="fa-solid fa-cart-shopping"></i></div>
+              <strong style="font-size:12.5px; color:#0F172A;" data-i18n="s5M6Title">Purchase Request (PR)</strong>
+            </div>
+            <p style="font-size:11.5px; color:#64748B; line-height:1.5;" data-i18n="s5M6Desc">Permintaan pengadaan barang langsung dari lapangan lewat HP dengan persetujuan manajerial terstruktur.</p>
+          </div>
+        </div>
+
+        <div class="mckinsey-takeaway">
+          <strong style="color:#0F172A; font-size:12px; display:block; margin-bottom:2px;" data-i18n="s5FooterBadge">Efisiensi Implementasi:</strong>
+          <p style="font-size:12px; color:#334155; line-height:1.5;" data-i18n="s5FooterNote">
+            Aplikasi Native iOS & Android &bull; Tanpa Perangkat Fisik Tambahan &bull; Model SaaS Mandiri atau Integrasi Langsung Odoo.
+          </p>
+        </div>
+      </div>
+
+      <div class="source-footnote">
+        <span>Source: KompakApps Product Architecture Blueprint v4.2</span>
+        <span>Exhibit 5 &bull; Operational Capabilities</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 6: COMPETITIVE DEFENSIVE MOAT -->
+    <div class="mckinsey-slide" id="slide6">
+      <div>
+        <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+          <div>
+            <span class="kicker-tag" data-i18n="s6Kicker">Lanskap Kompetisi &bull; Parit Pertahanan</span>
+            <h2 class="action-headline" data-i18n="s6Headline">Pemain incumbent tidak dapat meniru sinkronisasi offline & konektivitas Odoo tanpa merombak sistem dari nol</h2>
+            <p class="sub-lead" data-i18n="s6Sub">KompakApps menempati ruang strategis defensif antara HRIS kantoran murni dan ERP korporat berat.</p>
+          </div>
+          <span style="font-size:11px; font-weight:700; color:#64748B;">Slide 06 / 22</span>
+        </div>
+
+        <div class="table-container" style="margin-top:16px;">
+          <table style="width:100%; border-collapse:collapse; font-size:11.5px; text-align:left;">
+            <thead>
+              <tr style="background:#F8FAFC; border-bottom:2px solid #CBD5E1; color:#0F172A;">
+                <th style="padding:10px 14px;" data-i18n="s6Col1">Kemampuan &amp; Fokus Arsitektur</th>
+                <th style="padding:10px 14px; background:#EFF9FD; color:#0E7AA6; font-weight:800; border-left:1px solid #BAE6FD; border-right:1px solid #BAE6FD;">KOMPAKAPPS</th>
+                <th style="padding:10px 14px; color:#64748B;" data-i18n="s6Col3">HRIS Kantoran (Misal: Talenta)</th>
+                <th style="padding:10px 14px; color:#64748B;" data-i18n="s6Col4">Aplikasi Absen Murah</th>
+                <th style="padding:10px 14px; color:#64748B;" data-i18n="s6Col5">ERP Konvensional Berat</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom:1px solid #F1F5F9;">
+                <td style="padding:9px 14px; font-weight:700; color:#334155;" data-i18n="s6Row1">Orientasi Tenaga Kerja</td>
+                <td style="padding:9px 14px; background:#EFF9FD; font-weight:800; color:#0E7AA6; border-left:1px solid #BAE6FD; border-right:1px solid #BAE6FD;" data-i18n="s6R1C2">Distribusi &amp; Jasa Lapangan</td>
+                <td style="padding:9px 14px; color:#64748B;" data-i18n="s6R1C3">Khusus Kantoran (White-Collar)</td>
+                <td style="padding:9px 14px; color:#64748B;" data-i18n="s6R1C4">Usaha Mikro Generik</td>
+                <td style="padding:9px 14px; color:#64748B;" data-i18n="s6R1C5">Khusus Manajemen HQ</td>
+              </tr>
+              <tr style="border-bottom:1px solid #F1F5F9;">
+                <td style="padding:9px 14px; font-weight:700; color:#334155;" data-i18n="s6Row2">Sinkronisasi Native Offline-First</td>
+                <td style="padding:9px 14px; background:#EFF9FD; font-weight:800; color:#0E7AA6; border-left:1px solid #BAE6FD; border-right:1px solid #BAE6FD;" data-i18n="s6R2C2">Ya (SQLite Lokal Terenkripsi)</td>
+                <td style="padding:9px 14px; color:#DC2626;" data-i18n="s6R2C3">Tidak (Wajib Sinyal 4G Kuat)</td>
+                <td style="padding:9px 14px; color:#DC2626;" data-i18n="s6R2C4">Tidak (Sering Eror)</td>
+                <td style="padding:9px 14px; color:#DC2626;" data-i18n="s6R2C5">Tidak (Berbasis Web Portal)</td>
+              </tr>
+              <tr style="border-bottom:1px solid #F1F5F9;">
+                <td style="padding:9px 14px; font-weight:700; color:#334155;" data-i18n="s6Row3">CRM Lapangan &amp; Purchase Request</td>
+                <td style="padding:9px 14px; background:#EFF9FD; font-weight:800; color:#0E7AA6; border-left:1px solid #BAE6FD; border-right:1px solid #BAE6FD;" data-i18n="s6R3C2">Termasuk Langsung</td>
+                <td style="padding:9px 14px; color:#DC2626;" data-i18n="s6R3C3">Tidak Ada (Hanya HR Absensi)</td>
+                <td style="padding:9px 14px; color:#DC2626;" data-i18n="s6R3C4">Tidak Ada</td>
+                <td style="padding:9px 14px; color:#64748B;" data-i18n="s6R3C5">UI Web Rumit di HP</td>
+              </tr>
+              <tr style="border-bottom:1px solid #F1F5F9;">
+                <td style="padding:9px 14px; font-weight:700; color:#334155;" data-i18n="s6Row4">Sinkronisasi Langsung ke Odoo ERP</td>
+                <td style="padding:9px 14px; background:#EFF9FD; font-weight:800; color:#0E7AA6; border-left:1px solid #BAE6FD; border-right:1px solid #BAE6FD;" data-i18n="s6R4C2">Konektor Plug-and-Play Asli</td>
+                <td style="padding:9px 14px; color:#DC2626;" data-i18n="s6R4C3">API Kustom Sangat Mahal</td>
+                <td style="padding:9px 14px; color:#DC2626;" data-i18n="s6R4C4">Hanya Ekspor CSV Manual</td>
+                <td style="padding:9px 14px; color:#64748B;" data-i18n="s6R4C5">Hanya di Dalam Sistem Sendiri</td>
+              </tr>
+              <tr>
+                <td style="padding:9px 14px; font-weight:700; color:#334155;" data-i18n="s6Row5">Model Penetapan Harga</td>
+                <td style="padding:9px 14px; background:#EFF9FD; font-weight:800; color:#0E7AA6; border-left:1px solid #BAE6FD; border-right:1px solid #BAE6FD;" data-i18n="s6R5C2">Tarif Flat Rp60 Juta / tahun</td>
+                <td style="padding:9px 14px; color:#64748B;" data-i18n="s6R5C3">Biaya per Karyawan Mahal</td>
+                <td style="padding:9px 14px; color:#64748B;" data-i18n="s6R5C4">Murah tapi Churn Tinggi</td>
+                <td style="padding:9px 14px; color:#64748B;" data-i18n="s6R5C5">Biaya Lisensi Capex Berat</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="mckinsey-takeaway">
+          <strong style="color:#0F172A; font-size:12px; display:block; margin-bottom:2px;" data-i18n="s6MoatTitle">Ringkasan Parit Pertahanan:</strong>
+          <p style="font-size:12px; color:#334155; line-height:1.5;" data-i18n="s6MoatSummary">
+            Pemain incumbent terikat arsitektur cloud kantor yang mewajibkan 4G stabil. Meniru KompakApps akan kanibalisasi model bisnis per-user mereka sendiri.
+          </p>
+        </div>
+      </div>
+
+      <div class="source-footnote">
+        <span>Source: B2B Enterprise Software Competitive Benchmark Analysis</span>
+        <span>Exhibit 6 &bull; Competitive Moat</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 7: MARKET SIZING & ODOO CAPTIVE OPPORTUNITY -->
+    <div class="mckinsey-slide" id="slide7">
+      <div>
+        <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+          <div>
+            <span class="kicker-tag" data-i18n="s7Kicker">Potensi Pasar &bull; Landasan Pertumbuhan</span>
+            <h2 class="action-headline" data-i18n="s7Headline">80% Target Pasar berasal dari Klien yang telah bertahun-tahun mengoperasikan Odoo ERP</h2>
+            <p class="sub-lead" data-i18n="s7Sub">Seed funding memaksimalkan pemanfaatan instalasi Odoo yang sudah berjalan dengan memberikan nilai tambah mobile berkali lipat.</p>
+          </div>
+          <span style="font-size:11px; font-weight:700; color:#64748B;">Slide 07 / 22</span>
+        </div>
+
+        <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:16px; margin-top:22px;">
+          <div class="consulting-card consulting-card-top-navy">
+            <span style="font-size:10px; font-weight:800; color:#64748B; text-transform:uppercase;" data-i18n="s7TamLabel">TAM (TOTAL PASAR ERP &amp; HR)</span>
+            <div style="font-size:26px; font-weight:900; color:#0F172A; margin:8px 0;" data-i18n="val_tam_54T">Rp54,0 Triliun</div>
+            <p style="font-size:12px; color:#64748B; line-height:1.5;" data-i18n="s7TamDesc">
+              64 Juta+ UMKM formal & informal di Indonesia yang beralih mendigitalkan operasional kerja dan payroll.
+            </p>
+          </div>
+          <div class="consulting-card consulting-card-top-navy">
+            <span style="font-size:10px; font-weight:800; color:#0284C7; text-transform:uppercase;" data-i18n="s7SamLabel">SAM (KOMUNITAS PENGGUNA ODOO)</span>
+            <div style="font-size:26px; font-weight:900; color:#0284C7; margin:8px 0;" data-i18n="val_sam_9T">Rp9,0 Triliun</div>
+            <p style="font-size:12px; color:#64748B; line-height:1.5;" data-i18n="s7SamDesc">
+              ~150.000 korporasi menengah di sektor Distribusi, Logistik, Jasa Servis, Trading, dan Retail yang memakai ERP.
+            </p>
+          </div>
+          <div class="consulting-card consulting-card-top-blue" style="background:#EFF9FD;">
+            <span style="font-size:10px; font-weight:800; color:#0E7AA6; text-transform:uppercase;" data-i18n="s7SomLabel">SOM (80% KLIEN ODOO EKSISTING)</span>
+            <div style="font-size:26px; font-weight:900; color:#1392C6; margin:8px 0;" data-i18n="val_7_32B">Rp7,32 Miliar</div>
+            <p style="font-size:12px; color:#0E7AA6; line-height:1.5;" data-i18n="s7SomDesc">
+              <strong>122 Akun Perusahaan</strong>: ~98 akun dikonversi langsung dari basis klien Odoo eksisting dan referral ekosistem.
+            </p>
+          </div>
+        </div>
+
+        <div class="mckinsey-takeaway" style="background:#F0FDF4; border-left-color:#059669;">
+          <strong style="color:#059669; font-size:12px; display:block; margin-bottom:2px;" data-i18n="s7ExecTitle">Rasionalisasi Uji Kelayakan:</strong>
+          <p style="font-size:12px; color:#166534; line-height:1.5;" data-i18n="s7ExecDesc">
+            Target 122 klien bukanlah mencari dari nol di pasar umum. 80% dari target didapat dengan menawarkan modul frontline kepada perusahaan yang sudah terbiasa dengan Odoo, sehingga *time-to-close* lebih singkat dan *retention rate* mencapai 80%+.
+          </p>
+        </div>
+      </div>
+
+      <div class="source-footnote">
+        <span>Source: Statistics Indonesia (BPS) &bull; Odoo Partner Ecosystem Indonesia Directory</span>
+        <span>Exhibit 7 &bull; Market Opportunity</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 8: COMMERCIAL VALIDATION -->
+    <div class="mckinsey-slide" id="slide8">
+      <div>
+        <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+          <div>
+            <span class="kicker-tag" data-i18n="s8Kicker">Validasi Komersial &bull; Mesin Distribusi</span>
+            <h2 class="action-headline" data-i18n="s8Headline">Empat proyek implementasi tervalidasi membuktikan proof-of-concept produk secara riil</h2>
+            <p class="sub-lead" data-i18n="s8Sub">Basis klien korporat KreatifSolution berfungsi sebagai saluran akuisisi dengan CAC mendekati nol.</p>
+          </div>
+          <span style="font-size:11px; font-weight:700; color:#64748B;">Slide 08 / 22</span>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:20px;">
+          <div class="consulting-card consulting-card-top-blue">
+            <h3 style="font-size:14px; font-weight:800; color:#0F172A; margin-bottom:8px;" data-i18n="s8Col1Title">4 Implementasi Proyek Awal Tervalidasi</h3>
+            <p style="font-size:12px; color:#475569; line-height:1.6; margin-bottom:12px;" data-i18n="s8Col1Desc">
+              Telah selesai diimplementasikan dengan nilai ~Rp60 Juta per proyek di sektor distribusi logistik, trading, jaringan retail, dan jasa operasional. Menjadi bukti validasi produk nyata untuk dikonversi menjadi langganan SaaS tahunan berulang.
+            </p>
+            <div style="display:flex; gap:6px; flex-wrap:wrap;">
+              <span style="font-size:10.5px; background:#F1F5F9; color:#334155; padding:3px 8px; border-radius:3px; border:1px solid #CBD5E1;" data-i18n="s8Badge1">Distribusi &amp; Logistik</span>
+              <span style="font-size:10.5px; background:#F1F5F9; color:#334155; padding:3px 8px; border-radius:3px; border:1px solid #CBD5E1;" data-i18n="s8Badge2">Trading &amp; Pasokan</span>
+              <span style="font-size:10.5px; background:#F1F5F9; color:#334155; padding:3px 8px; border-radius:3px; border:1px solid #CBD5E1;" data-i18n="s8Badge3">Multi-Outlet Retail &amp; F&amp;B</span>
+              <span style="font-size:10.5px; background:#F1F5F9; color:#334155; padding:3px 8px; border-radius:3px; border:1px solid #CBD5E1;" data-i18n="s8Badge4">Teknisi Jasa &amp; Sales Lapangan</span>
+            </div>
+          </div>
+
+          <div class="consulting-card consulting-card-top-navy">
+            <h3 style="font-size:14px; font-weight:800; color:#0F172A; margin-bottom:8px;" data-i18n="s8Col2Title">Flywheel Distribusi Ekosistem Odoo (80% Dominasi)</h3>
+            <p style="font-size:12px; color:#475569; line-height:1.6; margin-bottom:12px;" data-i18n="s8Col2Desc">
+              Basis klien korporat KreatifSolution memberikan jalur pipa yang hangat dengan CAC rendah. Dibandingkan outbound cold-calling yang mahal, KompakApps langsung menyasar proyek ERP yang butuh solusi mobile.
+            </p>
+            <div style="font-size:11.5px; font-weight:700; color:#0E7AA6; background:#EFF9FD; padding:8px 12px; border-radius:4px; border:1px solid #BAE6FD;" data-i18n="s8Flywheel">
+              Deal ERP Back-Office &rarr; Modul Tambahan Karyawan Lapangan &rarr; Langganan SaaS Retensi Tinggi
+            </div>
+          </div>
+        </div>
+
+        <div class="mckinsey-takeaway">
+          <strong style="color:#0F172A; font-size:12px; display:block; margin-bottom:2px;" data-i18n="s8SummaryTitle">Keunggulan Struktural:</strong>
+          <p style="font-size:12px; color:#334155; line-height:1.5;" data-i18n="s8SummaryDesc">
+            KreatifSolution berfungsi sebagai mesin akuisisi klien berbiaya rendah, sementara KompakApps bertumbuh secara mandiri sebagai aset perangkat lunak ber-margin tinggi.
+          </p>
+        </div>
+      </div>
+
+      <div class="source-footnote">
+        <span>Source: Historical Deployment Ledger &bull; PT Global Kreatif Inovasi Client Records</span>
+        <span>Exhibit 8 &bull; Traction Validation</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 9: SALES FUNNEL -->
+    <div class="mckinsey-slide" id="slide9">
+      <div>
+        <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+          <div>
+            <span class="kicker-tag" data-i18n="s9Kicker">Mesin Penjualan &bull; Rasio Konversi</span>
+            <h2 class="action-headline" data-i18n="s9Headline">Target 50 perusahaan baru per tahun hanya membutuhkan ~4 transaksi disepakati per bulan</h2>
+            <p class="sub-lead" data-i18n="s9Sub">Corong kualifikasi terstruktur yang dirancang khusus untuk konversi B2B dengan niat beli tinggi.</p>
+          </div>
+          <span style="font-size:11px; font-weight:700; color:#64748B;">Slide 09 / 22</span>
+        </div>
+
+        <div style="display:flex; flex-direction:column; gap:8px; margin:20px auto; max-width:820px; width:100%;">
+          <div style="display:flex; align-items:center; background:#F8FAFC; border:1px solid #E2E8F0; padding:8px 14px; border-radius:4px; width:100%;">
+            <strong style="width:140px; font-size:12.5px; color:#0F172A;" data-i18n="s9F1">1.000 Prospek</strong>
+            <div style="flex:1; height:6px; background:#E2E8F0; border-radius:2px; margin:0 14px; overflow:hidden;"><div style="width:100%; height:100%; background:#64748B;"></div></div>
+            <span style="font-size:11.5px; color:#64748B;" data-i18n="s9F1Desc">Inbound, Ekosistem &amp; Iklan</span>
+          </div>
+          <div style="display:flex; align-items:center; background:#F8FAFC; border:1px solid #E2E8F0; padding:8px 14px; border-radius:4px; width:92%;">
+            <strong style="width:140px; font-size:12.5px; color:#0284C7;" data-i18n="s9F2">300 Terkualifikasi</strong>
+            <div style="flex:1; height:6px; background:#E2E8F0; border-radius:2px; margin:0 14px; overflow:hidden;"><div style="width:75%; height:100%; background:#0284C7;"></div></div>
+            <span style="font-size:11.5px; color:#64748B;" data-i18n="s9F2Desc">30% Kualifikasi oleh SDR</span>
+          </div>
+          <div style="display:flex; align-items:center; background:#F8FAFC; border:1px solid #E2E8F0; padding:8px 14px; border-radius:4px; width:84%;">
+            <strong style="width:140px; font-size:12.5px; color:#1392C6;" data-i18n="s9F3">180 Demo Solusi</strong>
+            <div style="flex:1; height:6px; background:#E2E8F0; border-radius:2px; margin:0 14px; overflow:hidden;"><div style="width:55%; height:100%; background:#1392C6;"></div></div>
+            <span style="font-size:11.5px; color:#64748B;" data-i18n="s9F3Desc">60% Pertemuan Demo Presentasi</span>
+          </div>
+          <div style="display:flex; align-items:center; background:#F8FAFC; border:1px solid #E2E8F0; padding:8px 14px; border-radius:4px; width:76%;">
+            <strong style="width:140px; font-size:12.5px; color:#0F172A;" data-i18n="s9F4">90 Pengajuan Proposal</strong>
+            <div style="flex:1; height:6px; background:#E2E8F0; border-radius:2px; margin:0 14px; overflow:hidden;"><div style="width:38%; height:100%; background:#0F172A;"></div></div>
+            <span style="font-size:11.5px; color:#64748B;" data-i18n="s9F4Desc">50% Pemetaan Proposal Solusi</span>
+          </div>
+          <div style="display:flex; align-items:center; background:#EFF9FD; border:1px solid #1392C6; padding:8px 14px; border-radius:4px; width:68%;">
+            <strong style="width:140px; font-size:12.5px; color:#0E7AA6;" data-i18n="s9F5">50 Akun Closed-Won</strong>
+            <div style="flex:1; height:6px; background:#BAE6FD; border-radius:2px; margin:0 14px; overflow:hidden;"><div style="width:25%; height:100%; background:#1392C6;"></div></div>
+            <span style="font-size:11.5px; font-weight:800; color:#0E7AA6;" data-i18n="s9F5Desc">55% Rasio Closing (5% End-to-End)</span>
+          </div>
+        </div>
+
+        <div class="mckinsey-takeaway">
+          <strong style="color:#0F172A; font-size:12px; display:block; margin-bottom:2px;" data-i18n="s9SummaryTitle">Kapasitas Tenaga Penjualan:</strong>
+          <p style="font-size:12px; color:#334155; line-height:1.5;" data-i18n="s9Summary">
+            Target 50 perusahaan baru per tahun hanya membutuhkan ~4 transaksi disepakati per bulan melalui 4 orang tim penjualan khusus (Founder/AE closing, SDR kualifikasi).
+          </p>
+        </div>
+      </div>
+
+      <div class="source-footnote">
+        <span>Source: Enterprise GTM Funnel Sizing Model</span>
+        <span>Exhibit 9 &bull; Funnel Mechanics</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 10: CHANNEL CONTRIBUTION (80% ODOO CAPTIVE ANCHOR) -->
+    <div class="mckinsey-slide" id="slide10">
+      <div>
+        <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+          <div>
+            <span class="kicker-tag" data-i18n="s10Kicker">Model Harga Komersial &bull; Bauran Saluran</span>
+            <h2 class="action-headline" data-i18n="s10Headline">80% Akuisisi ditopang oleh Pengguna Eksisting Odoo yang membutuhkan fungsi Frontline</h2>
+            <p class="sub-lead" data-i18n="s10Sub">Mengoptimalkan sistem yang sudah bertahun-tahun dipakai klien, memberikan nilai tambah tinggi dengan tarif bersahabat.</p>
+          </div>
+          <span style="font-size:11px; font-weight:700; color:#64748B;">Slide 10 / 22</span>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1.2fr 1fr; gap:20px; margin-top:16px; align-items:center;">
+          <div class="table-container">
+            <table style="width:100%; border-collapse:collapse; font-size:11.5px; text-align:left;">
+              <thead>
+                <tr style="background:#F8FAFC; border-bottom:2px solid #CBD5E1;">
+                  <th style="padding:8px 12px; color:#0F172A;" data-i18n="s10ColChannel">Saluran Penjualan</th>
+                  <th style="padding:8px 12px; color:#0F172A; text-align:center;" data-i18n="s10ColTarget">Target/Thn</th>
+                  <th style="padding:8px 12px; color:#0F172A; text-align:right;" data-i18n="s10ColShare">Porsi</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom:1px solid #F1F5F9; background:#EFF9FD;"><td style="padding:8px 12px; font-weight:800; color:#0E7AA6;" data-i18n="s10Ch1">Klien Eksisting Odoo (Captive)</td><td style="text-align:center; font-weight:800;" data-i18n="s10Ch1Deals">25 transaksi</td><td style="text-align:right; font-weight:800; color:#1392C6;">50%</td></tr>
+                <tr style="border-bottom:1px solid #F1F5F9; background:#EFF9FD;"><td style="padding:8px 12px; font-weight:800; color:#0284C7;" data-i18n="s10Ch3">Referral Komunitas &amp; Partner Odoo</td><td style="text-align:center; font-weight:800;" data-i18n="s10Ch3Deals">15 transaksi</td><td style="text-align:right; font-weight:800; color:#0284C7;">30%</td></tr>
+                <tr style="border-bottom:1px solid #F1F5F9;"><td style="padding:8px 12px; font-weight:600; color:#38BDF8;" data-i18n="s10Ch2">Inbound / Pencarian Organik</td><td style="text-align:center;" data-i18n="s10Ch2Deals">5 transaksi</td><td style="text-align:right; font-weight:600;">10%</td></tr>
+                <tr style="border-bottom:1px solid #F1F5F9;"><td style="padding:8px 12px; font-weight:600; color:#F59E0B;" data-i18n="s10Ch4">Iklan Digital Kinerja</td><td style="text-align:center;" data-i18n="s10Ch4Deals">3 transaksi</td><td style="text-align:right; font-weight:600;">6%</td></tr>
+                <tr><td style="padding:8px 12px; font-weight:600; color:#0F172A;" data-i18n="s10Ch5">Outbound Non-Odoo</td><td style="text-align:center;" data-i18n="s10Ch5Deals">2 transaksi</td><td style="text-align:right; font-weight:600;">4%</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div style="height:190px; position:relative;">
+            <canvas id="slideChannelChart"></canvas>
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:12px; margin-top:14px;">
+          <div class="consulting-card" style="padding:10px 14px;"><span style="font-size:10px; color:#64748B;" data-i18n="s10P1Title">Tarif Standar Tahunan (ACV)</span><strong style="display:block; font-size:13.5px; color:#0F172A;" data-i18n="s10P1Val">Rp60 Juta / tahun</strong></div>
+          <div class="consulting-card" style="padding:10px 14px;"><span style="font-size:10px; color:#64748B;" data-i18n="s10P2Title">Komitmen 2 Tahun</span><strong style="display:block; font-size:13.5px; color:#0284C7;" data-i18n="s10P2Val">Rp110,4 Juta (Diskon 8%)</strong></div>
+          <div class="consulting-card" style="padding:10px 14px;"><span style="font-size:10px; color:#64748B;" data-i18n="s10P3Title">Program Founding 3 Tahun</span><strong style="display:block; font-size:13.5px; color:#1392C6;" data-i18n="s10P3Val">Rp150 Juta di muka</strong></div>
+        </div>
+      </div>
+
+      <div class="source-footnote">
+        <span>Source: KompakApps Go-to-Market Strategy</span>
+        <span>Exhibit 10 &bull; Channel Mix &amp; Pricing</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 11: UNIT ECONOMICS -->
+    <div class="mckinsey-slide" id="slide11">
+      <div>
+        <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+          <div>
+            <span class="kicker-tag" data-i18n="s11Kicker">Unit Economics &bull; Analisis Kontribusi Margin</span>
+            <h2 class="action-headline" data-i18n="s11Headline">Margin kotor meningkat dari 80% pada akuisisi klien baru menjadi 95% pada perpanjangan tahunan</h2>
+            <p class="sub-lead" data-i18n="s11Sub">Setelah biaya onboarding teramortisasi, akun perpanjangan menghasilkan arus kas operasional murni.</p>
+          </div>
+          <span style="font-size:11px; font-weight:700; color:#64748B;">Slide 11 / 22</span>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:20px;">
+          <div class="consulting-card consulting-card-top-blue">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+              <strong style="font-size:13px; color:#0F172A;" data-i18n="s11Y1Title">Tahun Pertama (Klien Baru)</strong>
+              <span style="background:#EFF9FD; color:#0E7AA6; font-size:10px; font-weight:800; padding:2px 8px; border-radius:3px;">80,0% Gross Margin</span>
+            </div>
+            <div style="font-size:22px; font-weight:900; color:#1392C6; margin-bottom:8px;" data-i18n="s11Y1Margin">Rp48 Juta Kontribusi Bersih</div>
+            <ul style="font-size:11.5px; color:#475569; list-style:none; line-height:1.7;">
+              <li>&bull; <span data-i18n="s11Y1Item1">Nilai Kontrak Tahunan:</span> <strong data-i18n="val_60M_exact">Rp60.000.000</strong></li>
+              <li>&bull; <span data-i18n="s11Y1Item2">Onboarding &amp; Konfigurasi:</span> <strong data-i18n="val_6M_bracket">(Rp6.000.000)</strong></li>
+              <li>&bull; <span data-i18n="s11Y1Item3">Instance Cloud Server:</span> <strong data-i18n="val_1_5M_bracket">(Rp1.500.000)</strong></li>
+              <li>&bull; <span data-i18n="s11Y1Item4">Pemrosesan AI &amp; OCR:</span> <strong data-i18n="val_1_5M_bracket2">(Rp1.500.000)</strong></li>
+              <li>&bull; <span data-i18n="s11Y1Item5">Komisi Sales (5%):</span> <strong data-i18n="val_3M_bracket">(Rp3.000.000)</strong></li>
+              <li style="border-top:1px solid #E2E8F0; margin-top:4px; font-weight:700; color:#0F172A;" data-i18n="s11Y1Total">Total Biaya Variabel: (Rp12.000.000)</li>
+            </ul>
+          </div>
+
+          <div class="consulting-card consulting-card-top-green" style="background:#FDFEFC;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+              <strong style="font-size:13px; color:#059669;" data-i18n="s11Y2Title">Tahun ke-2+ (Perpanjangan / Renewal)</strong>
+              <span style="background:#ECFDF5; color:#059669; font-size:10px; font-weight:800; padding:2px 8px; border-radius:3px;">95,0% Gross Margin</span>
+            </div>
+            <div style="font-size:22px; font-weight:900; color:#059669; margin-bottom:8px;" data-i18n="s11Y2Margin">Rp57 Juta Kontribusi Bersih</div>
+            <ul style="font-size:11.5px; color:#166534; list-style:none; line-height:1.7;">
+              <li>&bull; <span data-i18n="s11Y2Item1">Nilai Kontrak Tahunan:</span> <strong data-i18n="val_60M_exact">Rp60.000.000</strong></li>
+              <li>&bull; <span data-i18n="s11Y2Item2">Onboarding &amp; Komisi:</span> <strong data-i18n="s11Zero">Rp0 (Nol)</strong></li>
+              <li>&bull; <span data-i18n="s11Y2Item3">Instance Cloud Server:</span> <strong data-i18n="val_1_5M_bracket">(Rp1.500.000)</strong></li>
+              <li>&bull; <span data-i18n="s11Y2Item4">Pemeliharaan AI &amp; API:</span> <strong data-i18n="val_1_5M_bracket2">(Rp1.500.000)</strong></li>
+              <li>&bull; <span data-i18n="s11Y2Item5">Dukungan Customer Success:</span> <strong data-i18n="s11Covered">Sudah di dalam OPEX tetap</strong></li>
+              <li style="border-top:1px solid #BBF7D0; margin-top:4px; font-weight:700; color:#059669;" data-i18n="s11Y2Total">Total Biaya Variabel: (Rp3.000.000)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mckinsey-takeaway">
+          <strong style="color:#0F172A; font-size:12px; display:block; margin-bottom:2px;" data-i18n="s11SummaryTitle">Dinamika Retensi Akumulatif:</strong>
+          <p style="font-size:12px; color:#334155; line-height:1.5;" data-i18n="s11Summary">
+            Dengan retensi perpanjangan 80%, margin kotor perusahaan meningkat menuju 95%, menghasilkan arus kas operasional masif untuk membiayai pengembangan produk secara mandiri.
+          </p>
+        </div>
+      </div>
+
+      <div class="source-footnote">
+        <span>Source: Management Cost Accounting Model &bull; Cloud Hosting Infrastructure Benchmarks</span>
+        <span>Exhibit 11 &bull; Unit Economics</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 12: 36-MONTH CUSTOMER GROWTH -->
+    <div class="mckinsey-slide" id="slide12">
+      <div>
+        <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+          <div>
+            <span class="kicker-tag" data-i18n="s12Kicker">Proyeksi Kohort &bull; Skala Pertumbuhan</span>
+            <h2 class="action-headline" data-i18n="s12Headline">Basis klien aktif berkembang dari 50 menjadi 122 perusahaan, mengakumulasi ARR Rp7,32 Miliar</h2>
+            <p class="sub-lead" data-i18n="s12Sub">Akuisisi stabil 50 logo baru per tahun diperkuat oleh kohort perpanjangan tahunan 80%. </p>
+          </div>
+          <span style="font-size:11px; font-weight:700; color:#64748B;">Slide 12 / 22</span>
+        </div>
+
+        <div class="table-container" style="margin-top:20px;">
+          <table style="width:100%; border-collapse:collapse; font-size:12px; text-align:left;">
+            <thead>
+              <tr style="background:#F8FAFC; border-bottom:2px solid #CBD5E1; color:#0F172A;">
+                <th style="padding:10px 14px;" data-i18n="s12ColMetric">Metrik Kunci Pertumbuhan</th>
+                <th style="padding:10px 14px; text-align:right;" data-i18n="s12ColY1">Tahun 1</th>
+                <th style="padding:10px 14px; text-align:right;" data-i18n="s12ColY2">Tahun 2</th>
+                <th style="padding:10px 14px; text-align:right;" data-i18n="s12ColY3">Tahun 3</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom:1px solid #F1F5F9;"><td style="padding:10px 14px; font-weight:600;" data-i18n="s12Row1">Klien Baru Ditambahkan</td><td style="padding:10px 14px; text-align:right;">50</td><td style="padding:10px 14px; text-align:right;">50</td><td style="padding:10px 14px; text-align:right;">50</td></tr>
+              <tr style="border-bottom:1px solid #F1F5F9;"><td style="padding:10px 14px; font-weight:600;" data-i18n="s12Row2">Klien Memperpanjang (80%)</td><td style="padding:10px 14px; text-align:right;">0</td><td style="padding:10px 14px; text-align:right;">40</td><td style="padding:10px 14px; text-align:right;">72</td></tr>
+              <tr style="border-bottom:2px solid #CBD5E1; background:#EFF9FD;"><td style="padding:10px 14px; font-weight:800; color:#0E7AA6;" data-i18n="s12Row3">Total Pelanggan Perusahaan Aktif</td><td style="padding:10px 14px; text-align:right; font-weight:800; color:#0E7AA6;">50</td><td style="padding:10px 14px; text-align:right; font-weight:800; color:#0E7AA6;">90</td><td style="padding:10px 14px; text-align:right; font-weight:800; color:#0E7AA6;">122</td></tr>
+              <tr style="border-bottom:1px solid #F1F5F9;"><td style="padding:10px 14px; font-weight:600;" data-i18n="s12Row4">Pendapatan Berulang Tahunan (ARR)</td><td style="padding:10px 14px; text-align:right; font-weight:700;" data-i18n="val_arr_y1">Rp3,00 Miliar</td><td style="padding:10px 14px; text-align:right; font-weight:700;" data-i18n="val_arr_y2">Rp5,40 Miliar</td><td style="padding:10px 14px; text-align:right; font-weight:800; color:#1392C6;" data-i18n="val_arr_y3">Rp7,32 Miliar</td></tr>
+              <tr><td style="padding:10px 14px; font-weight:600;" data-i18n="s12Row5">Ekuivalen Run-Rate Bulanan (MRR)</td><td style="padding:10px 14px; text-align:right;" data-i18n="val_mrr_y1">Rp250 Juta</td><td style="padding:10px 14px; text-align:right;" data-i18n="val_mrr_y2">Rp450 Juta</td><td style="padding:10px 14px; text-align:right;" data-i18n="val_mrr_y3">Rp610 Juta</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="mckinsey-takeaway">
+          <strong style="color:#0F172A; font-size:12px; display:block; margin-bottom:2px;" data-i18n="s12SummaryTitle">Mekanisme Kohort:</strong>
+          <p style="font-size:12px; color:#334155; line-height:1.5;" data-i18n="s12Summary">
+            Pada Tahun ke-3, 72 perpanjangan terdiri dari 40 klien dari Tahun ke-2 dan 32 klien tersisa dari Tahun ke-1, membuktikan daya tahan kohort.
+          </p>
+        </div>
+      </div>
+
+      <div class="source-footnote">
+        <span>Source: 36-Month Cohort Retention &amp; ARR Schedule</span>
+        <span>Exhibit 12 &bull; Cohort Progression</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 13: ARR TRAJECTORY -->
+    <div class="mckinsey-slide" id="slide13">
+      <div>
+        <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+          <div>
+            <span class="kicker-tag" data-i18n="s13Kicker">Kurva Pertumbuhan &bull; Lintasan Pendapatan</span>
+            <h2 class="action-headline" data-i18n="s13Headline">Pertumbuhan pendapatan terprediksi berlipat dari Rp3,00 Miliar menuju Rp7,32 Miliar ARR</h2>
+            <p class="sub-lead" data-i18n="s13Sub">Nilai kontrak tahunan Rp60 Juta dipadukan retensi pelanggan enterprise mengunci stabilitas ARR.</p>
+          </div>
+          <span style="font-size:11px; font-weight:700; color:#64748B;">Slide 13 / 22</span>
+        </div>
+
+        <div style="height:270px; width:100%; margin:16px 0; position:relative;">
+          <canvas id="slideArrChart"></canvas>
+        </div>
+
+        <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:12px;">
+          <div class="consulting-card" style="padding:10px 14px;"><span style="font-size:10px; color:#64748B;" data-i18n="s13M1Title">Milestone Tahun 1</span><strong style="display:block; font-size:14px; color:#0F172A;" data-i18n="val_arr_y1">Rp3,00 Miliar ARR</strong><span style="font-size:10px; color:#1392C6;" data-i18n="s13M1Sub">50 Klien Kumulatif</span></div>
+          <div class="consulting-card" style="padding:10px 14px;"><span style="font-size:10px; color:#64748B;" data-i18n="s13M2Title">Milestone Tahun 2</span><strong style="display:block; font-size:14px; color:#0F172A;" data-i18n="val_arr_y2">Rp5,40 Miliar ARR</strong><span style="font-size:10px; color:#0284C7;" data-i18n="s13M2Sub">90 Perusahaan Aktif</span></div>
+          <div class="consulting-card" style="padding:10px 14px;"><span style="font-size:10px; color:#64748B;" data-i18n="s13M3Title">Milestone Tahun 3</span><strong style="display:block; font-size:14px; color:#1392C6;" data-i18n="val_arr_y3">Rp7,32 Miliar ARR</strong><span style="font-size:10px; color:#0E7AA6;" data-i18n="s13M3Sub">122 Perusahaan Aktif</span></div>
+        </div>
+      </div>
+
+      <div class="source-footnote">
+        <span>Source: Dual-Axis Revenue Projection Model</span>
+        <span>Exhibit 13 &bull; ARR Trajectory</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 14: SEED STRUCTURE -->
+    <div class="mckinsey-slide" id="slide14">
+      <div>
+        <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+          <div>
+            <span class="kicker-tag" data-i18n="s14Kicker">Tata Kelola Modal &bull; Kerangka Hukum</span>
+            <h2 class="action-headline" data-i18n="s14Headline">Struktur penarikan bertahap mengikat penerbitan saham langsung dengan pemenuhan target KPI</h2>
+            <p class="sub-lead" data-i18n="s14Sub">Menghilangkan risiko pemborosan kas sekaligus menjamin runway operasional 3 tahun penuh.</p>
+          </div>
+          <span style="font-size:11px; font-weight:700; color:#64748B;">Slide 14 / 22</span>
+        </div>
+
+        <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:14px; margin-top:20px;">
+          <div class="consulting-card consulting-card-top-blue">
+            <span style="font-size:10px; font-weight:800; color:#64748B; text-transform:uppercase;" data-i18n="s14B1Title">TOTAL KOMITMEN DANA</span>
+            <div style="font-size:22px; font-weight:900; color:#1392C6; margin:6px 0;" data-i18n="val_5_4B">Rp5,40 Miliar</div>
+            <p style="font-size:11.5px; color:#64748B;" data-i18n="s14B1Desc">Total komitmen pendanaan seed untuk kepemilikan 20,0% ekuitas fully diluted.</p>
+          </div>
+          <div class="consulting-card consulting-card-top-navy">
+            <span style="font-size:10px; font-weight:800; color:#64748B; text-transform:uppercase;" data-i18n="s14B2Title">PENARIKAN BULANAN</span>
+            <div style="font-size:22px; font-weight:900; color:#0284C7; margin:6px 0;" data-i18n="val_150M">Rp150 Juta</div>
+            <p style="font-size:11.5px; color:#64748B;" data-i18n="s14B2Desc">Dicairkan otomatis setiap bulan untuk membiayai batas atas OPEX operasional.</p>
+          </div>
+          <div class="consulting-card consulting-card-top-navy">
+            <span style="font-size:10px; font-weight:800; color:#64748B; text-transform:uppercase;" data-i18n="s14B3Title">HORIZON FASILITAS</span>
+            <div style="font-size:22px; font-weight:900; color:#0F172A; margin:6px 0;" data-i18n="s14B3Val">36 Bulan</div>
+            <p style="font-size:11.5px; color:#64748B;" data-i18n="s14B3Desc">Menjamin runway operasional 3 tahun penuh tanpa kekhawatiran kehabisan kas.</p>
+          </div>
+          <div class="consulting-card consulting-card-top-green">
+            <span style="font-size:10px; font-weight:800; color:#64748B; text-transform:uppercase;" data-i18n="s14B4Title">ALOKASI TAHUNAN</span>
+            <div style="font-size:22px; font-weight:900; color:#059669; margin:6px 0;" data-i18n="val_1_8B">Rp1,80 Miliar</div>
+            <p style="font-size:11.5px; color:#64748B;" data-i18n="s14B4Desc">Penarikan terprediksi dan diaudit berkala sesuai pemenuhan laporan KPI kuartalan.</p>
+          </div>
+        </div>
+
+        <div class="mckinsey-takeaway">
+          <strong style="color:#0F172A; font-size:12px; display:block; margin-bottom:2px;" data-i18n="s14LegalTitle">Mekanisme Hukum &amp; Penerbitan Saham:</strong>
+          <p style="font-size:12px; color:#334155; line-height:1.5;" data-i18n="s14LegalDesc">
+            Dieksekusi melalui Tranched Subscription Agreement atau Milestone-linked Convertible Note (SAFE). Saham diterbitkan secara proporsional sesuai komitmen penarikan dana bertahap untuk melindungi kedua belah pihak.
+          </p>
+        </div>
+      </div>
+
+      <div class="source-footnote">
+        <span>Source: Investment Facility Agreement &bull; Legal Structuring Memorandum</span>
+        <span>Exhibit 14 &bull; Capital Facility</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 15: OPEX CEILING -->
+    <div class="mckinsey-slide" id="slide15">
+      <div>
+        <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+          <div>
+            <span class="kicker-tag" data-i18n="s15Kicker">Manajemen Biaya &bull; Alokasi Overhead</span>
+            <h2 class="action-headline" data-i18n="s15Headline">Batas atas OPEX tetap Rp150 Juta per bulan dijamin penuh oleh fasilitas investasi</h2>
+            <p class="sub-lead" data-i18n="s15Sub">Pertambahan tim dan belanja operasional dikelola secara ramping dan terikat milestone.</p>
+          </div>
+          <span style="font-size:11px; font-weight:700; color:#64748B;">Slide 15 / 22</span>
+        </div>
+
+        <div style="display:grid; grid-template-columns:repeat(2, 1fr); gap:14px; margin-top:20px;">
+          <div class="consulting-card consulting-card-top-blue">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <strong style="font-size:13px; color:#0F172A;" data-i18n="s15O1Title">Produk &amp; Teknologi</strong>
+              <span style="font-weight:800; color:#1392C6; font-size:12px;">46,7%</span>
+            </div>
+            <div style="font-size:20px; font-weight:900; color:#0F172A; margin:4px 0;" data-i18n="val_70M">Rp70 Juta / bln</div>
+            <p style="font-size:11.5px; color:#64748B; line-height:1.5;" data-i18n="s15O1Desc">CTO / Tech Lead, Fullstack Backend, Mobile App Engineers (iOS/Android), dan Integrasi AI.</p>
+          </div>
+          <div class="consulting-card consulting-card-top-navy">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <strong style="font-size:13px; color:#0F172A;" data-i18n="s15O2Title">Sales &amp; Customer Success</strong>
+              <span style="font-weight:800; color:#0284C7; font-size:12px;">23,3%</span>
+            </div>
+            <div style="font-size:20px; font-weight:900; color:#0F172A; margin:4px 0;" data-i18n="val_35M">Rp35 Juta / bln</div>
+            <p style="font-size:11.5px; color:#64748B; line-height:1.5;" data-i18n="s15O2Desc">Account Executive (closing transaksi), Spesialis Onboarding CS, dan Manajer Retensi Klien.</p>
+          </div>
+          <div class="consulting-card consulting-card-top-navy">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <strong style="font-size:13px; color:#0F172A;" data-i18n="s15O3Title">Infrastruktur, Legal &amp; Cadangan</strong>
+              <span style="font-weight:800; color:#0F172A; font-size:12px;">20,0%</span>
+            </div>
+            <div style="font-size:20px; font-weight:900; color:#0F172A; margin:4px 0;" data-i18n="val_30M">Rp30 Juta / bln</div>
+            <p style="font-size:11.5px; color:#64748B; line-height:1.5;" data-i18n="s15O3Desc">Server multi-tenant inti, audit keamanan, kepatuhan regulasi, legal korporat, dan cadangan G&amp;A.</p>
+          </div>
+          <div class="consulting-card consulting-card-top-amber">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <strong style="font-size:13px; color:#0F172A;" data-i18n="s15O4Title">Pertumbuhan &amp; Pemasaran</strong>
+              <span style="font-weight:800; color:#D97706; font-size:12px;">10,0%</span>
+            </div>
+            <div style="font-size:20px; font-weight:900; color:#0F172A; margin:4px 0;" data-i18n="val_15M">Rp15 Juta / bln</div>
+            <p style="font-size:11.5px; color:#64748B; line-height:1.5;" data-i18n="s15O4Desc">Iklan penelusuran Google berniat beli tinggi, konten SEO, materi presentasi korporat, dan ko-marketing mitra.</p>
+          </div>
+        </div>
+
+        <div class="mckinsey-takeaway">
+          <strong style="color:#0F172A; font-size:12px; display:block; margin-bottom:2px;" data-i18n="s15SummaryTitle">Batas Pagu Tetap:</strong>
+          <p style="font-size:12px; color:#334155; line-height:1.5;" data-i18n="s15Summary">
+            Beban OPEX tetap dikunci tepat maksimal Rp150 Juta per bulan dan dijamin oleh fasilitas seed. Risiko cash-burn tidak terkendali sepenuhnya dieliminasi.
+          </p>
+        </div>
+      </div>
+
+      <div class="source-footnote">
+        <span>Source: Departmental Operational Budget &bull; Headcount Allocation Schedule</span>
+        <span>Exhibit 15 &bull; Fixed OPEX Model</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 16: CASH ACCUMULATION -->
+    <div class="mckinsey-slide" id="slide16">
+      <div>
+        <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+          <div>
+            <span class="kicker-tag" data-i18n="s16Kicker">Perbendaharaan &bull; Akumulasi Kas</span>
+            <h2 class="action-headline" data-i18n="s16Headline">Surplus kas operasional akumulatif mencapai Rp13,58 Miliar pada akhir Tahun ke-3</h2>
+            <p class="sub-lead" data-i18n="s16Sub">Pendapatan pelanggan disimpan di kas neraca perusahaan untuk membangun likuiditas mandiri.</p>
+          </div>
+          <span style="font-size:11px; font-weight:700; color:#64748B;">Slide 16 / 22</span>
+        </div>
+
+        <div style="height:250px; width:100%; margin:14px 0; position:relative;">
+          <canvas id="slideCashChart"></canvas>
+        </div>
+
+        <div class="table-container">
+          <table style="width:100%; border-collapse:collapse; font-size:11.5px; text-align:left;">
+            <thead>
+              <tr style="background:#F8FAFC; border-bottom:1px solid #CBD5E1;">
+                <th style="padding:8px 12px;" data-i18n="s16ColMetric">Metrik Finansial (IDR)</th>
+                <th style="padding:8px 12px; text-align:right;" data-i18n="s16ColY1">Tahun 1</th>
+                <th style="padding:8px 12px; text-align:right;" data-i18n="s16ColY2">Tahun 2</th>
+                <th style="padding:8px 12px; text-align:right;" data-i18n="s16ColY3">Tahun 3</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td style="padding:7px 12px;" data-i18n="s16R1">Pendapatan Masuk dari Pelanggan</td><td style="padding:7px 12px; text-align:right;" data-i18n="val_cash_rev_y1">Rp3,00 Miliar</td><td style="padding:7px 12px; text-align:right;" data-i18n="val_cash_rev_y2">Rp5,40 Miliar</td><td style="padding:7px 12px; text-align:right;" data-i18n="val_cash_rev_y3">Rp7,32 Miliar</td></tr>
+              <tr><td style="padding:7px 12px;" data-i18n="s16R2">Biaya Variabel Pemenuhan Layanan</td><td style="padding:7px 12px; text-align:right;" data-i18n="val_cash_var_y1">(Rp600 Juta)</td><td style="padding:7px 12px; text-align:right;" data-i18n="val_cash_var_y2">(Rp720 Juta)</td><td style="padding:7px 12px; text-align:right;" data-i18n="val_cash_var_y3">(Rp816 Juta)</td></tr>
+              <tr style="background:#EFF9FD; font-weight:800; color:#0E7AA6;"><td style="padding:8px 12px;" data-i18n="s16R3">Surplus Kas Akumulatif di Neraca</td><td style="padding:8px 12px; text-align:right;" data-i18n="val_cash_sur_y1">Rp2,40 Miliar</td><td style="padding:8px 12px; text-align:right;" data-i18n="val_cash_sur_y2">Rp7,08 Miliar</td><td style="padding:8px 12px; text-align:right; color:#D97706;" data-i18n="val_cash_sur_y3">Rp13,58 Miliar</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="source-footnote">
+        <span>Source: 3-Year Corporate Balance Sheet Forecast &bull; Treasury Reserves Ledger</span>
+        <span>Exhibit 16 &bull; Cash Accumulation</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 17: ROADMAP -->
+    <div class="mckinsey-slide" id="slide17">
+      <div>
+        <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+          <div>
+            <span class="kicker-tag" data-i18n="s17Kicker">Peta Jalan Eksekusi &bull; Fase Deliverables</span>
+            <h2 class="action-headline" data-i18n="s17Headline">Empat horizon eksekusi bertahap mengantarkan KompakApps ke fase likuiditas mandiri</h2>
+            <p class="sub-lead" data-i18n="s17Sub">Milestone bertransisi dari pembuktian modul awal menuju operasi berskala cepat.</p>
+          </div>
+          <span style="font-size:11px; font-weight:700; color:#64748B;">Slide 17 / 22</span>
+        </div>
+
+        <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:14px; margin-top:20px;">
+          <div class="consulting-card consulting-card-top-blue">
+            <span style="font-size:10px; font-weight:800; color:#1392C6; display:block; margin-bottom:6px;" data-i18n="s17M1Time">Bulan 0 – 6</span>
+            <h4 style="font-size:13px; font-weight:800; color:#0F172A; margin-bottom:4px;" data-i18n="s17M1Title">Fondasi &amp; Konversi Awal</h4>
+            <p style="font-size:11.5px; color:#64748B; line-height:1.5;" data-i18n="s17M1Desc">Penyelesaian packaging multi-tenant SaaS; konversi 4 proyek awal jadi langganan berulang; pembentukan pipeline SDR.</p>
+          </div>
+          <div class="consulting-card consulting-card-top-navy">
+            <span style="font-size:10px; font-weight:800; color:#0284C7; display:block; margin-bottom:6px;" data-i18n="s17M2Time">Bulan 7 – 12</span>
+            <h4 style="font-size:13px; font-weight:800; color:#0F172A; margin-bottom:4px;" data-i18n="s17M2Title">Akuisisi Terukur</h4>
+            <p style="font-size:11.5px; color:#64748B; line-height:1.5;" data-i18n="s17M2Desc">Skala kanal rujukan mitra Odoo; capai 50 akun perusahaan kumulatif dan capai run-rate ARR Rp3,00 Miliar.</p>
+          </div>
+          <div class="consulting-card consulting-card-top-navy">
+            <span style="font-size:10px; font-weight:800; color:#0F172A; display:block; margin-bottom:6px;" data-i18n="s17M3Time">Bulan 13 – 24</span>
+            <h4 style="font-size:13px; font-weight:800; color:#0F172A; margin-bottom:4px;" data-i18n="s17M3Title">Retensi &amp; Ekspansi</h4>
+            <p style="font-size:11.5px; color:#64748B; line-height:1.5;" data-i18n="s17M3Desc">Validasi retensi perpanjangan 80%; perluas fitur AI terintegrasi; capai 90 klien aktif dan ARR Rp5,40 Miliar.</p>
+          </div>
+          <div class="consulting-card consulting-card-top-green">
+            <span style="font-size:10px; font-weight:800; color:#059669; display:block; margin-bottom:6px;" data-i18n="s17M4Time">Bulan 25 – 36</span>
+            <h4 style="font-size:13px; font-weight:800; color:#0F172A; margin-bottom:4px;" data-i18n="s17M4Title">Profitabilitas Mandiri</h4>
+            <p style="font-size:11.5px; color:#64748B; line-height:1.5;" data-i18n="s17M4Desc">Capai 122 perusahaan aktif, ARR Rp7,32 Miliar, dan cadangan kas Rp13,58 Miliar; inisiasi jalur likuiditas exit.</p>
+          </div>
+        </div>
+
+        <div class="mckinsey-takeaway">
+          <strong style="color:#0F172A; font-size:12px; display:block; margin-bottom:2px;" data-i18n="s17SummaryTitle">Ketukan Akuntabilitas:</strong>
+          <p style="font-size:12px; color:#334155; line-height:1.5;" data-i18n="s17Summary">
+            Setiap fase milestone dipantau melalui target kuartalan konkret yang ditinjau pada sesi QBR bersama direksi.
+          </p>
+        </div>
+      </div>
+
+      <div class="source-footnote">
+        <span>Source: KompakApps Strategic Operating Plan (2026–2029)</span>
+        <span>Exhibit 17 &bull; Execution Roadmap</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 18: OPERATIONAL GOVERNANCE MATRIX -->
+    <div class="mckinsey-slide" id="slide18">
+      <div>
+        <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+          <div>
+            <span class="kicker-tag" data-i18n="s18Kicker">Tata Kelola Operasional &bull; Matriks Kepemilikan</span>
+            <h2 class="action-headline" data-i18n="s18Headline">Setiap target kuartalan memiliki satu pemilik akuntabel mutlak di sepanjang Q1–Q12</h2>
+            <p class="sub-lead" data-i18n="s18Sub">Tim lintas fungsi menyediakan data dan eksekusi tanpa memecah fokus tanggung jawab.</p>
+          </div>
+          <span style="font-size:11px; font-weight:700; color:#64748B;">Slide 18 / 22</span>
+        </div>
+
+        <div class="table-container" style="margin-top:14px;">
+          <table style="width:100%; border-collapse:collapse; font-size:11px; text-align:left;">
+            <thead>
+              <tr style="background:#F8FAFC; border-bottom:2px solid #CBD5E1; color:#0F172A;">
+                <th style="padding:6px 10px; width:90px;" data-i18n="s18ColQuarter">Kuartal</th>
+                <th style="padding:6px 10px;" data-i18n="s18ColFocus">Fokus KPI &amp; Deliverable</th>
+                <th style="padding:6px 10px; width:170px;" data-i18n="s18ColOwner">Penanggung Jawab Utama</th>
+                <th style="padding:6px 10px; width:180px;" data-i18n="s18ColSupport">Tim Pendukung</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom:1px solid #F1F5F9;"><td style="padding:5px 10px; font-weight:700; color:#1392C6;">Q1 – BUILD</td><td style="padding:5px 10px;" data-i18n="s18Q1F">Kesiapan produk, MVP, konversi awal, pipeline</td><td style="padding:5px 10px; font-weight:600;">CTO + Product Manager</td><td style="padding:5px 10px; color:#64748B;">CEO, Backend, Mobile, AI</td></tr>
+              <tr style="border-bottom:1px solid #F1F5F9;"><td style="padding:5px 10px; font-weight:700; color:#0284C7;">Q2 – TRACTION</td><td style="padding:5px 10px;" data-i18n="s18Q2F">Pelanggan baru, aktivasi, qualified pipeline</td><td style="padding:5px 10px; font-weight:600;">CEO / Founder</td><td style="padding:5px 10px; color:#64748B;">AE, Product, CS, Mkt</td></tr>
+              <tr style="border-bottom:1px solid #F1F5F9;"><td style="padding:5px 10px; font-weight:700; color:#0E7AA6;">Q3 – PROVE</td><td style="padding:5px 10px;" data-i18n="s18Q3F">Logo baru, tingkat konversi, CAC, coverage pipeline</td><td style="padding:5px 10px; font-weight:600;">AE / Sales Lead</td><td style="padding:5px 10px; color:#64748B;">CEO, SDR, Marketing</td></tr>
+              <tr style="border-bottom:1px solid #F1F5F9; background:#EFF9FD;"><td style="padding:5px 10px; font-weight:800; color:#1392C6;">Q4 – SCALE</td><td style="padding:5px 10px; font-weight:700;" data-i18n="s18Q4F">50 pelanggan kumulatif, ARR Rp3,00 Miliar, kesiapan renewal</td><td style="padding:5px 10px; font-weight:800;">CEO / Founder</td><td style="padding:5px 10px; color:#64748B;">AE, CS, Finance, Product</td></tr>
+              <tr style="border-bottom:1px solid #F1F5F9;"><td style="padding:5px 10px; font-weight:600;">Q5 – SCALE</td><td style="padding:5px 10px;" data-i18n="s18Q5F">Pelanggan aktif, pertumbuhan ARR, aktivasi</td><td style="padding:5px 10px; font-weight:600;">Customer Success Lead</td><td style="padding:5px 10px; color:#64748B;">AE, Product, CEO</td></tr>
+              <tr style="border-bottom:1px solid #F1F5F9;"><td style="padding:5px 10px; font-weight:600;">Q6 – RETENTION</td><td style="padding:5px 10px;" data-i18n="s18Q6F">Perpanjangan (renewal), churn, ekspansi, ARR</td><td style="padding:5px 10px; font-weight:600;">Customer Success Lead</td><td style="padding:5px 10px; color:#64748B;">CEO, AE, Product, Finance</td></tr>
+              <tr style="border-bottom:1px solid #F1F5F9;"><td style="padding:5px 10px; font-weight:600;">Q7 – GTM EXP</td><td style="padding:5px 10px;" data-i18n="s18Q7F">Logo baru, kontribusi kanal, CAC, pipeline</td><td style="padding:5px 10px; font-weight:600;">Sales Lead</td><td style="padding:5px 10px; color:#64748B;">CEO, SDR, Marketing</td></tr>
+              <tr style="border-bottom:1px solid #F1F5F9; background:#EFF9FD;"><td style="padding:5px 10px; font-weight:800; color:#1392C6;">Q8 – SCALE (Y2)</td><td style="padding:5px 10px; font-weight:700;" data-i18n="s18Q8F">Pelanggan aktif (90), ARR Rp5,40 Miliar, margin kotor</td><td style="padding:5px 10px; font-weight:800;">COO / Operations</td><td style="padding:5px 10px; color:#64748B;">Finance, Product, CS, CTO</td></tr>
+              <tr style="border-bottom:1px solid #F1F5F9;"><td style="padding:5px 10px; font-weight:600;">Q9 – ENGINE</td><td style="padding:5px 10px;" data-i18n="s18Q9F">Logo baru, perpanjangan, ARR, produktivitas sales</td><td style="padding:5px 10px; font-weight:600;">Sales Lead</td><td style="padding:5px 10px; color:#64748B;">CEO, AE, SDR, CS</td></tr>
+              <tr style="border-bottom:1px solid #F1F5F9;"><td style="padding:5px 10px; font-weight:600;">Q10 – EFFICIENCY</td><td style="padding:5px 10px;" data-i18n="s18Q10F">CAC, margin kotor, retensi, efisiensi burn rate</td><td style="padding:5px 10px; font-weight:600;">Finance / COO</td><td style="padding:5px 10px; color:#64748B;">Sales, CS, CTO, CEO</td></tr>
+              <tr style="border-bottom:1px solid #F1F5F9;"><td style="padding:5px 10px; font-weight:600;">Q11 – READINESS</td><td style="padding:5px 10px;" data-i18n="s18Q11F">ARR, retensi, kas cadangan, kualitas pelaporan</td><td style="padding:5px 10px; font-weight:600;">CEO + Finance</td><td style="padding:5px 10px; color:#64748B;">COO, CS, Sales, CTO</td></tr>
+              <tr style="background:#EFF9FD; font-weight:800; color:#0E7AA6;"><td style="padding:6px 10px; color:#1392C6;">Q12 – TARGET (Y3)</td><td style="padding:6px 10px;" data-i18n="s18Q12F">122 pelanggan aktif, ARR Rp7,32 Miliar, kesiapan likuiditas</td><td style="padding:6px 10px;">CEO / Founder</td><td style="padding:6px 10px;">All Functional Leads + Finance</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="source-footnote">
+        <span>Source: 36-Month Functional Responsibility Matrix</span>
+        <span>Exhibit 18 &bull; Governance Matrix</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 19: INVESTOR REPORTING -->
+    <div class="mckinsey-slide" id="slide19">
+      <div>
+        <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+          <div>
+            <span class="kicker-tag" data-i18n="s19Kicker">Transparansi &bull; Pelaporan Investor</span>
+            <h2 class="action-headline" data-i18n="s19Headline">Format pelaporan QBR 6 poin memastikan transparansi institusional tanpa beban birokrasi</h2>
+            <p class="sub-lead" data-i18n="s19Sub">Investor mendapatkan visibilitas dasbor real-time atas metrik berulang dan audit kas drawdown.</p>
+          </div>
+          <span style="font-size:11px; font-weight:700; color:#64748B;">Slide 19 / 22</span>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1.8fr 1.2fr; gap:18px; margin-top:20px;">
+          <div class="consulting-card">
+            <strong style="color:#0F172A; font-size:13px; display:block; margin-bottom:10px;" data-i18n="s19QbrTitle"><i class="fa-solid fa-clipboard-list text-[#1392C6]"></i> Paket Standar 6 Poin Quarterly Business Review (QBR):</strong>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; font-size:11.5px; color:#475569;">
+              <div style="background:#F8FAFC; border:1px solid #E2E8F0; padding:8px 10px; border-radius:4px;"><strong style="color:#0F172A;" data-i18n="s19P1H">1. Realisasi vs Target KPI</strong><p style="font-size:10.5px; color:#64748B; margin-top:2px;" data-i18n="s19P1D">Analisis varians pencapaian ARR &amp; jumlah klien.</p></div>
+              <div style="background:#F8FAFC; border:1px solid #E2E8F0; padding:8px 10px; border-radius:4px;"><strong style="color:#0F172A;" data-i18n="s19P2H">2. Penjelasan Varians</strong><p style="font-size:10.5px; color:#64748B; margin-top:2px;" data-i18n="s19P2D">Analisis akar penyebab atas deviasi kinerja.</p></div>
+              <div style="background:#F8FAFC; border:1px solid #E2E8F0; padding:8px 10px; border-radius:4px;"><strong style="color:#0F172A;" data-i18n="s19P3H">3. Tindakan Korektif</strong><p style="font-size:10.5px; color:#64748B; margin-top:2px;" data-i18n="s19P3D">Solusi perbaikan dengan pemilik tindakan yang jelas.</p></div>
+              <div style="background:#F8FAFC; border:1px solid #E2E8F0; padding:8px 10px; border-radius:4px;"><strong style="color:#0F172A;" data-i18n="s19P4H">4. Prioritas Kuartal Depan</strong><p style="font-size:10.5px; color:#64748B; margin-top:2px;" data-i18n="s19P4D">3 fokus utama produk dan operasional.</p></div>
+              <div style="background:#F8FAFC; border:1px solid #E2E8F0; padding:8px 10px; border-radius:4px;"><strong style="color:#0F172A;" data-i18n="s19P5H">5. Status Kas &amp; Drawdown</strong><p style="font-size:10.5px; color:#64748B; margin-top:2px;" data-i18n="s19P5D">Laju burn-rate, cadangan kas &amp; penarikan Rp150M.</p></div>
+              <div style="background:#F8FAFC; border:1px solid #E2E8F0; padding:8px 10px; border-radius:4px;"><strong style="color:#0F172A;" data-i18n="s19P6H">6. Risiko Utama &amp; Keputusan</strong><p style="font-size:10.5px; color:#64748B; margin-top:2px;" data-i18n="s19P6D">Regulasi, pasar &amp; dependensi teknologi.</p></div>
+            </div>
+          </div>
+
+          <div class="consulting-card consulting-card-top-blue" style="background:#FDFEFC; display:flex; flex-direction:column; justify-content:space-between;">
+            <div>
+              <strong style="color:#0E7AA6; font-size:13px; display:block; margin-bottom:8px;" data-i18n="s19DashTitle">Dashboard Utama Investor:</strong>
+              <p style="font-size:11.5px; color:#475569; line-height:1.5;" data-i18n="s19DashDesc">
+                Investor mendapatkan visibilitas real-time atas indikator kesehatan B2B SaaS tanpa menciptakan birokrasi berlebihan:
+              </p>
+              <div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:10px;">
+                <span style="font-size:10.5px; background:#EFF9FD; color:#0E7AA6; padding:3px 8px; border-radius:3px; border:1px solid #B5E3F8; font-weight:700;">ARR / MRR</span>
+                <span style="font-size:10.5px; background:#EFF9FD; color:#0E7AA6; padding:3px 8px; border-radius:3px; border:1px solid #B5E3F8; font-weight:700;" data-i18n="s19BadgeNetLogos">Penambahan Logo Bersih</span>
+                <span style="font-size:10.5px; background:#EFF9FD; color:#0E7AA6; padding:3px 8px; border-radius:3px; border:1px solid #B5E3F8; font-weight:700;" data-i18n="s19BadgeCohort">80% Retensi Kohort</span>
+                <span style="font-size:10.5px; background:#EFF9FD; color:#0E7AA6; padding:3px 8px; border-radius:3px; border:1px solid #B5E3F8; font-weight:700;" data-i18n="s19BadgeMargin">Gross Margin</span>
+                <span style="font-size:10.5px; background:#EFF9FD; color:#0E7AA6; padding:3px 8px; border-radius:3px; border:1px solid #B5E3F8; font-weight:700;">CAC Payback</span>
+                <span style="font-size:10.5px; background:#EFF9FD; color:#0E7AA6; padding:3px 8px; border-radius:3px; border:1px solid #B5E3F8; font-weight:700;" data-i18n="s19BadgeCash">Kas Cadangan Neraca</span>
+              </div>
+            </div>
+            <div style="border-top:1px solid #E2E8F0; padding-top:8px; font-size:10.5px; color:#64748B; font-style:italic;" data-i18n="s19Principle">
+              Prinsip: Pelaporan berfokus pada kemajuan terukur dan akuntabilitas nyata tanpa membebani operasional tim.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="source-footnote">
+        <span>Source: Investor Relations Governance Protocol</span>
+        <span>Exhibit 19 &bull; Reporting Cadence</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 20: VALUATION SENSITIVITY -->
+    <div class="mckinsey-slide" id="slide20">
+      <div>
+        <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+          <div>
+            <span class="kicker-tag" data-i18n="s20Kicker">Pemodelan Valuasi &bull; Skenario Imbal Hasil</span>
+            <h2 class="action-headline" data-i18n="s20Headline">Valuasi baseline memberikan imbal hasil menarik pada kelipatan exit SaaS B2B regional</h2>
+            <p class="sub-lead" data-i18n="s20Sub">Dievaluasi pada kelipatan konservatif 3x hingga 8x ARR terhadap baseline ARR Tahun ke-3 Rp7,32 Miliar.</p>
+          </div>
+          <span style="font-size:11px; font-weight:700; color:#64748B;">Slide 20 / 22</span>
+        </div>
+
+        <div style="background:#F8FAFC; border:1px solid #CBD5E1; border-radius:4px; padding:10px 16px; margin-top:14px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+          <div style="display:flex; align-items:center; gap:12px;">
+            <span style="font-size:10px; font-weight:800; background:#1392C6; color:#FFFFFF; padding:3px 8px; border-radius:3px; text-transform:uppercase;" data-i18n="s20ArbitrageTag">Arbitrase Kelipatan Valuasi</span>
+            <span style="font-size:11.5px; color:#334155;" data-i18n="s20ArbitrageDesc">
+              Masuk Putaran Seed di <strong>7,2&times; ARR Tahun 1</strong> (Rp3,00 Miliar) &bull; Berlipat menjadi <strong>2,9&times; ARR Tahun 3</strong> (Rp7,32 Miliar)
+            </span>
+          </div>
+          <span style="font-size:11px; font-weight:700; color:#059669;" data-i18n="s20ArbitrageHighlight">
+            &bull; Batas keamanan signifikan di bawah median SaaS Asia Tenggara (10&times;&ndash;12&times;)
+          </span>
+        </div>
+
+        <div style="display:grid; grid-template-columns:repeat(5, 1fr); gap:12px; margin-top:14px;">
+          <div class="consulting-card" style="text-align:center;">
+            <span style="font-size:10.5px; color:#64748B; font-weight:700;">3x ARR (Bear)</span>
+            <div style="font-size:18px; font-weight:800; color:#0F172A; margin:4px 0;" data-i18n="val_s20_v1">Rp21,96 Miliar</div>
+            <div style="border-top:1px solid #E2E8F0; padding-top:6px; font-size:10.5px;">
+              <div><span data-i18n="s20StakeLabel">Porsi 20%:</span> <strong data-i18n="val_s20_s1">Rp4,39 Miliar</strong></div>
+              <span style="color:#EF4444; font-weight:700;">0,81x MOIC</span>
+            </div>
+          </div>
+
+          <div class="consulting-card" style="text-align:center;">
+            <span style="font-size:10.5px; color:#64748B; font-weight:700;">4x ARR</span>
+            <div style="font-size:18px; font-weight:800; color:#0F172A; margin:4px 0;" data-i18n="val_s20_v2">Rp29,28 Miliar</div>
+            <div style="border-top:1px solid #E2E8F0; padding-top:6px; font-size:10.5px;">
+              <div><span data-i18n="s20StakeLabel">Porsi 20%:</span> <strong data-i18n="val_s20_s2">Rp5,85 Miliar</strong></div>
+              <span style="color:#1392C6; font-weight:700;">1,08x MOIC</span>
+            </div>
+          </div>
+
+          <div class="consulting-card consulting-card-top-blue" style="text-align:center; background:#EFF9FD;">
+            <span style="font-size:10.5px; color:#0E7AA6; font-weight:800;" data-i18n="s20BaseLabel">5x ARR (Base Case)</span>
+            <div style="font-size:20px; font-weight:900; color:#0F172A; margin:4px 0;" data-i18n="val_s20_v3">Rp36,60 Miliar</div>
+            <div style="border-top:1px solid #B5E3F8; padding-top:6px; font-size:10.5px;">
+              <div><span data-i18n="s20StakeLabel">Porsi 20%:</span> <strong style="color:#1392C6;" data-i18n="val_s20_s3">Rp7,32 Miliar</strong></div>
+              <span style="color:#0E7AA6; font-weight:800;" data-i18n="s20BaseGain">+35,5% Keuntungan (1,36x MOIC)</span>
+            </div>
+          </div>
+
+          <div class="consulting-card" style="text-align:center;">
+            <span style="font-size:10.5px; color:#64748B; font-weight:700;">6x ARR</span>
+            <div style="font-size:18px; font-weight:800; color:#0F172A; margin:4px 0;" data-i18n="val_s20_v4">Rp43,92 Miliar</div>
+            <div style="border-top:1px solid #E2E8F0; padding-top:6px; font-size:10.5px;">
+              <div><span data-i18n="s20StakeLabel">Porsi 20%:</span> <strong data-i18n="val_s20_s4">Rp8,78 Miliar</strong></div>
+              <span style="color:#0284C7; font-weight:700;">1,63x MOIC</span>
+            </div>
+          </div>
+
+          <div class="consulting-card consulting-card-top-green" style="text-align:center;">
+            <span style="font-size:10.5px; color:#059669; font-weight:700;">8x ARR (Bull)</span>
+            <div style="font-size:18px; font-weight:800; color:#0F172A; margin:4px 0;" data-i18n="val_s20_v5">Rp58,56 Miliar</div>
+            <div style="border-top:1px solid #E2E8F0; padding-top:6px; font-size:10.5px;">
+              <div><span data-i18n="s20StakeLabel">Porsi 20%:</span> <strong data-i18n="val_s20_s5">Rp11,71 Miliar</strong></div>
+              <span style="color:#059669; font-weight:700;">2,17x MOIC</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mckinsey-takeaway">
+          <strong style="color:#0F172A; font-size:12px; display:block; margin-bottom:2px;" data-i18n="s20SummaryTitle">Kerangka Uji Kelayakan:</strong>
+          <p style="font-size:12px; color:#334155; line-height:1.5;" data-i18n="s20Summary">
+            Sensitivitas dihitung berdasarkan target ARR Tahun ke-3 sebesar Rp7,32 Miliar. Investasi awal Seed Rp5,40 Miliar menghasilkan potensi imbal hasil menarik pada kelipatan exit SaaS B2B standar regional.
+          </p>
+        </div>
+      </div>
+
+      <div class="source-footnote">
+        <span>Source: Southeast Asia B2B SaaS M&amp;A Multiples (2024–2026)</span>
+        <span>Exhibit 20 &bull; Valuation Sensitivity</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 21: EXIT PATHWAYS -->
+    <div class="mckinsey-slide" id="slide21">
+      <div>
+        <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+          <div>
+            <span class="kicker-tag" data-i18n="s21Kicker">Arsitektur Exit &bull; Opsi Likuiditas</span>
+            <h2 class="action-headline" data-i18n="s21Headline">Empat opsi likuiditas memberikan perlindungan modal serta berbagai jendela exit yang jelas</h2>
+            <p class="sub-lead" data-i18n="s21Sub">Pembelian kembali saham oleh founder dijamin oleh surplus kas akumulatif Rp13,58 Miliar di kas perusahaan.</p>
+          </div>
+          <span style="font-size:11px; font-weight:700; color:#64748B;">Slide 21 / 22</span>
+        </div>
+
+        <div style="display:grid; grid-template-columns:repeat(2, 1fr); gap:14px; margin-top:20px;">
+          <div class="consulting-card consulting-card-top-blue">
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
+              <div style="width:24px; height:24px; border-radius:3px; background:#EFF9FD; color:#1392C6; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:11px;">1</div>
+              <strong style="font-size:13px; color:#0F172A;" data-i18n="s21L1Title">Founder / Pembelian Kembali Neraca</strong>
+            </div>
+            <p style="font-size:11.5px; color:#64748B; line-height:1.5;" data-i18n="s21L1Desc">
+              Didukung penuh oleh surplus kas akumulatif sebesar Rp13,58 Miliar di kas perusahaan pada Tahun ke-3. Perusahaan memiliki likuiditas non-dilutif yang cukup untuk membeli kembali saham investor.
+            </p>
+          </div>
+
+          <div class="consulting-card consulting-card-top-navy">
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
+              <div style="width:24px; height:24px; border-radius:3px; background:#EFF9FD; color:#0284C7; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:11px;">2</div>
+              <strong style="font-size:13px; color:#0F172A;" data-i18n="s21L2Title">Akuisisi Strategis (M&amp;A)</strong>
+            </div>
+            <p style="font-size:11.5px; color:#64748B; line-height:1.5;" data-i18n="s21L2Desc">
+              Akuisisi oleh pemain ERP regional, konglomerasi telekomunikasi B2B, atau platform SaaS HR yang berekspansi ke pasar tenaga kerja frontline Asia Tenggara.
+            </p>
+          </div>
+
+          <div class="consulting-card consulting-card-top-navy">
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
+              <div style="width:24px; height:24px; border-radius:3px; background:#F8FAFC; color:#0F172A; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:11px;">3</div>
+              <strong style="font-size:13px; color:#0F172A;" data-i18n="s21L3Title">Penjualan Saham Sekunder (Secondary)</strong>
+            </div>
+            <p style="font-size:11.5px; color:#64748B; line-height:1.5;" data-i18n="s21L3Desc">
+              Penjualan saham seed kepada dana ventura institusional tahap Series A / Growth yang mencari aset teknologi dengan pendapatan terbukti di Asia Tenggara.
+            </p>
+          </div>
+
+          <div class="consulting-card consulting-card-top-green">
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
+              <div style="width:24px; height:24px; border-radius:3px; background:#ECFDF5; color:#059669; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:11px;">4</div>
+              <strong style="font-size:13px; color:#0F172A;" data-i18n="s21L4Title">Pencatatan Saham Publik (IPO BEI)</strong>
+            </div>
+            <p style="font-size:11.5px; color:#64748B; line-height:1.5;" data-i18n="s21L4Desc">
+              Pencatatan saham publik di Bursa Efek Indonesia (Papan Akselerasi atau Pengembangan) membuka jalan likuiditas pasar modal publik.
+            </p>
+          </div>
+        </div>
+
+        <div class="mckinsey-takeaway">
+          <strong style="color:#0F172A; font-size:12px; display:block; margin-bottom:2px;" data-i18n="s21SummaryTitle">Perlindungan Nilai Turun &amp; Potensi Naik:</strong>
+          <p style="font-size:12px; color:#334155; line-height:1.5;" data-i18n="s21Summary">
+            Banyaknya opsi likuiditas yang layak memberikan perlindungan modal sekaligus menjaga potensi keuntungan ekuitas tetap tinggi.
+          </p>
+        </div>
+      </div>
+
+      <div class="source-footnote">
+        <span>Source: Capital Markets Liquidity Advisory Framework</span>
+        <span>Exhibit 21 &bull; Exit Mechanisms</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 22: CONCLUSION -->
+    <div class="mckinsey-slide" id="slide22">
+      <div style="border-bottom:1px solid #E2E8F0; padding-bottom:16px; display:flex; justify-content:space-between; align-items:flex-start;">
+        <div>
+          <span class="kicker-tag" data-i18n="s22Badge">Kesimpulan Investasi &bull; Diskusi Kemitraan</span>
+          <h1 class="action-headline" style="font-size:26px;" data-i18n="s22Title">Mentransformasi Operasional Garis Depan di Seluruh Perusahaan Indonesia</h1>
+          <p class="sub-lead" data-i18n="s22Desc">Distribusi 80% klien Odoo terbukti, disiplin penarikan modal bertahap, parit teknologi offline-first, dan berbagai rute likuiditas konkret.</p>
+        </div>
+        <span style="font-size:11px; font-weight:700; color:#64748B;">Slide 22 / 22</span>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:14px; margin:24px 0;">
+        <div class="consulting-card consulting-card-top-blue">
+          <span style="font-size:10px; color:#64748B; font-weight:800; text-transform:uppercase;" data-i18n="s22RoundLabel">Ukuran Putaran Seed</span>
+          <div style="font-size:22px; font-weight:900; color:#1392C6; margin:4px 0;" data-i18n="val_5_4B">Rp5,40 Miliar</div>
+          <span style="font-size:10px; color:#64748B;" data-i18n="s1DrawDesc">Rp150 Juta / bln &times; 36 bln</span>
+        </div>
+        <div class="consulting-card consulting-card-top-navy">
+          <span style="font-size:10px; color:#64748B; font-weight:800; text-transform:uppercase;" data-i18n="s22EquityLabel">Porsi Saham</span>
+          <div style="font-size:22px; font-weight:900; color:#0F172A; margin:4px 0;" data-i18n="val_equity_pct">20,0% Saham</div>
+          <span style="font-size:10px; color:#64748B;" data-i18n="val_pre_21_6B">Pre-money: Rp21,60 Miliar</span>
+        </div>
+        <div class="consulting-card consulting-card-top-navy">
+          <span style="font-size:10px; color:#64748B; font-weight:800; text-transform:uppercase;" data-i18n="s22ArrLabel">Target Tahun ke-3</span>
+          <div style="font-size:22px; font-weight:900; color:#0284C7;" data-i18n="val_7_32B">Rp7,32 Miliar ARR</div>
+          <span style="font-size:10px; color:#64748B;" data-i18n="s1LogosDesc">122 Perusahaan Aktif</span>
+        </div>
+        <div class="consulting-card consulting-card-top-amber">
+          <span style="font-size:10px; color:#64748B; font-weight:800; text-transform:uppercase;" data-i18n="s22CashLabel">Surplus Kas Tahun ke-3</span>
+          <div style="font-size:22px; font-weight:900; color:#D97706; margin:4px 0;" data-i18n="val_13_58B">Rp13,58 Miliar</div>
+          <span style="font-size:10px; color:#64748B;" data-i18n="s1CashSub">Kas Akumulatif Pelanggan</span>
+        </div>
+      </div>
+
+      <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid #E2E8F0; padding-top:16px; flex-wrap:wrap; gap:10px;">
+        <div>
+          <span style="color:#64748B; font-size:10px; font-weight:800; text-transform:uppercase; display:block;" data-i18n="s22InquiriesLabel">Kontak Langsung &amp; Hubungan Investor</span>
+          <strong style="color:#0F172A; font-size:13.5px;">kontak@kompakapps.com &bull; PT Solusi Kompak Indonesia</strong>
+        </div>
+        <a href="https://kompakapps.com" target="_blank" class="mckinsey-btn" style="text-decoration:none;">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> <span data-i18n="s22VisitBtn">Kunjungi kompakapps.com</span>
+        </a>
+      </div>
+
+      <div class="source-footnote">
+        <span>KompakApps Advisory Memorandum &bull; End of Slide Deck</span>
+        <span>Exhibit 22 &bull; Discussion Conclusion</span>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    /* Default display is configured directly in Indonesian (ID) */
+    let currentSlideLang = 'id';
+    let chartChannelInstance = null;
+    let chartArrInstance = null;
+    let chartCashInstance = null;
+
+    const slideI18n = {
+      id: {
+        toolbarSub: "| Dokumen Rahasia Presentasi Investor • Memorandum Eksekutif",
+        printBtn: "Ekspor ke PDF (16:9 Landscape)",
+
+        // Numeric Currency Translations
+        val_5_4B: "Rp5,40 Miliar",
+        val_pre_21_6B: "Pre-money: Rp21,60 Miliar",
+        val_equity_pct: "20,0% Saham",
+        val_7_32B: "Rp7,32 Miliar",
+        val_13_58B: "Rp13,58 Miliar",
+        val_60M: "Rp60 Juta",
+        val_60M_exact: "Rp60.000.000",
+        val_150M: "Rp150 Juta",
+        val_1_8B: "Rp1,80 Miliar",
+        val_tam_54T: "Rp54,0 Triliun",
+        val_sam_9T: "Rp9,0 Triliun",
+        val_arr_y1: "Rp3,00 Miliar",
+        val_arr_y2: "Rp5,40 Miliar",
+        val_arr_y3: "Rp7,32 Miliar",
+        val_mrr_y1: "Rp250 Juta",
+        val_mrr_y2: "Rp450 Juta",
+        val_mrr_y3: "Rp610 Juta",
+        val_70M: "Rp70 Juta / bln",
+        val_35M: "Rp35 Juta / bln",
+        val_30M: "Rp30 Juta / bln",
+        val_15M: "Rp15 Juta / bln",
+        val_cash_rev_y1: "Rp3,00 Miliar",
+        val_cash_rev_y2: "Rp5,40 Miliar",
+        val_cash_rev_y3: "Rp7,32 Miliar",
+        val_cash_var_y1: "(Rp600 Juta)",
+        val_cash_var_y2: "(Rp720 Juta)",
+        val_cash_var_y3: "(Rp816 Juta)",
+        val_cash_sur_y1: "Rp2,40 Miliar",
+        val_cash_sur_y2: "Rp7,08 Miliar",
+        val_cash_sur_y3: "Rp13,58 Miliar",
+        val_s20_v1: "Rp21,96 Miliar",
+        val_s20_s1: "Rp4,39 Miliar",
+        val_s20_v2: "Rp29,28 Miliar",
+        val_s20_s2: "Rp5,85 Miliar",
+        val_s20_v3: "Rp36,60 Miliar",
+        val_s20_s3: "Rp7,32 Miliar",
+        val_s20_v4: "Rp43,92 Miliar",
+        val_s20_s4: "Rp8,78 Miliar",
+        val_s20_v5: "Rp58,56 Miliar",
+        val_s20_s5: "Rp11,71 Miliar",
+        val_6M_bracket: "(Rp6.000.000)",
+        val_1_5M_bracket: "(Rp1.500.000)",
+        val_1_5M_bracket2: "(Rp1.500.000)",
+        val_3M_bracket: "(Rp3.000.000)",
+
+        // Slide 1
+        s1Kicker: "Memorandum Eksekutif • Horizon Investasi Putaran Seed",
+        s1Title: "KompakApps: Sistem Operasi Mobile Frontline Terpadu Korporasi Indonesia",
+        s1Sub: "Memaksimalkan investasi Odoo ERP yang sudah berjalan bertahun-tahun dengan fungsi frontline mobile terpadu berbiaya terjangkau.",
+        s1Badge: "RAHASIA • SEED ROUND V6.0",
+        s1ThesisHead: "Tesis Strategis: 80% Sasaran Pasar dari Klien Eksisting Odoo",
+        s1ThesisBody: "Ratusan korporasi telah menginvestasikan miliaran rupiah pada sistem Odoo ERP selama bertahun-tahun, namun operasional garis depan di sektor distribusi, logistik, dan industri jasa lapangan masih terputus oleh mesin absen fisik dan formulir kertas manual. Seed funding ini digunakan untuk mengonversi basis klien Odoo eksisting (80% target) menjadi langganan SaaS KompakApps—memberikan nilai tambah (*added value*) maksimal dengan biaya lisensi yang sangat ekonomis.",
+        s1P1Title: "Platform 6-in-1",
+        s1P1Desc: "Absensi, cuti, klaim, payroll, CRM sales, PR barang.",
+        s1P2Title: "Arsitektur Offline-First",
+        s1P2Desc: "SQLite lokal terenkripsi dengan sinkronisasi otomatis.",
+        s1P3Title: "80% Klien Odoo Eksisting",
+        s1P3Desc: "Distribusi captive via PT Global Kreatif Inovasi (Odoo Gold Partner).",
+        s1TermBoxTitle: "Metrik Kunci Investasi",
+        s1M1Label: "Target Pendanaan Seed",
+        s1M2Label: "Porsi Ekuitas",
+        s1M3Label: "Target ARR Tahun ke-3",
+        s1M4Label: "Surplus Kas Tahun ke-3",
+        s1DrawDesc: "Rp150 Juta / bln × 36 bln",
+        s1LogosDesc: "122 Perusahaan Aktif",
+        s1CashSub: "Kas Akumulatif Pelanggan",
+
+        // Slide 2
+        s2Kicker: "Arsitektur Transaksi • Ringkasan Eksekutif",
+        s2Headline: "Pencairan Rp150 Juta per bulan mengunci pagu OPEX; pendapatan pelanggan memperkuat cadangan kas",
+        s2Sub: "Modal seed distrukturkan sebagai fasilitas operasional terprediksi, melindungi nilai ekuitas pemegang saham.",
+        s2Box1Title: "KOMITMEN DANA SEED",
+        s2Box1Desc: "Komitmen modal ekuitas dicairkan bertahap Rp150 Juta per bulan selama 36 bulan.",
+        s2Box2Title: "VALUASI EKUITAS",
+        s2Box2Desc: "Valuasi pre-money Rp21,60 Miliar; valuasi post-money fully diluted Rp27,00 Miliar.",
+        s2Box3Title: "TARGET ACV TAHUNAN",
+        s2Box3Desc: "Paket standar enterprise hingga ~200 karyawan frontline dengan retensi perpanjangan 80%.",
+        s2Box4Title: "KAS NERACA TAHUN KE-3",
+        s2Box4Desc: "Seluruh pendapatan pelanggan disimpan di kas perusahaan untuk membangun likuiditas kuat.",
+        s2TrailingTitle: "BUKTI VALIDASI AWAL (TRAILING)",
+        s2TrailingVal: "Rp240 Juta (4 Implementasi)",
+        s2TrailingDesc: "Validasi operasional dan teknis lapangan di sektor distribusi logistik, trading, retail multi-cabang, dan jasa.",
+        s2ForwardTitle: "KELIPATAN VALUASI MASUK INVESTOR (FORWARD MULTIPLE)",
+        s2Y1MultipleLabel: "Kelipatan ARR Tahun 1:",
+        s2Y3MultipleLabel: "Kelipatan ARR Tahun 3:",
+        s2Y1Calc: "(Rp21,60M / Rp3,00M)",
+        s2Y3Calc: "(Rp21,60M / Rp7,32M)",
+        s2BenchmarkNote: "Terdiskon menarik dibanding median SaaS Asia Tenggara (10×–12× ARR).",
+        s2ThesisTitle: "Implikasi Tata Kelola Strategis:",
+        s2ThesisDesc: "Dengan menyelaraskan pencairan bulanan Rp150 Juta tepat pada batas atas OPEX tetap, risiko cash-burn tidak terkendali sepenuhnya dieliminasi. Pendapatan langganan klien masuk seutuhnya membangun cadangan kas neraca yang mandiri.",
+
+        // Slide 3
+        s3Kicker: "Kepemimpinan • Founder-Market Fit",
+        s3Headline: "Dipimpin oleh praktisi 10 tahun industri ERP & B2B SaaS dengan 35+ implementasi korporat",
+        s3Sub: "Didukung PT Global Kreatif Inovasi (Official Odoo Gold Partner Indonesia, rating kepuasan 95%).",
+        s3FounderRole: "Founder & Chief Executive Officer",
+        s3Stat1: "35+ Referensi Korporat Odoo Terverifikasi",
+        s3Stat2: "Tingkat Retensi & Kepuasan Klien 95%",
+        s3Stat3: "Official Odoo Gold Partner Indonesia",
+        s3DeskeraDesc: "Memimpin operasi komersial dan ekspansi pipeline salah satu platform Cloud ERP SaaS terkemuka di Asia Tenggara. Menguasai model unit economics recurring SaaS, ritme payback CAC, dan siklus penjualan enterprise.",
+        s3KreatifDesc: "Membangun konsultan Odoo Gold Partner terkemuka di Indonesia (odoo.com/partners). Berhasil mengimplementasikan sistem ERP di 35+ korporasi besar (JakLingko, PT Metindo Erasakti, PT Muliapack, PT Bumipa Medika, Hasta Prada) dengan rating kepuasan 95%.",
+        s3MoatTitle: "Target 80% Klien Odoo Eksisting:",
+        s3MoatDesc: 'KompakApps memecahkan masalah klien yang sudah memakai Odoo bertahun-tahun: <em>"Odoo hebat di back-office, tapi operasional distribusi dan jasa lapangan masih manual."</em> Basis klien eksisting ini menjadi target 80% adopsi dengan CAC mendekati nol.',
+        s3Pod1: "Tim Engineering:",
+        s3Pod2: "Tim Produk & AI:",
+        s3Pod3: "Tim GTM & CS:",
+
+        // Slide 4: FOCUS ON DISTRIBUTION & SERVICE INDUSTRY
+        s4Kicker: "Friksi Pasar • Masalah Struktural",
+        s4Headline: "ERP konvensional gagal di operasional distribusi & jasa, mengisolasi 80% tenaga kerja garis depan",
+        s4Sub: "Driver logistik, sales kanvaser, dan teknisi lapangan terputus dari ERP pusat, memicu titik buta data dan keterlambatan rekonsiliasi.",
+        s4P1Title: "Mesin Absen Fisik Tak Berguna Bagi Tim Bergerak",
+        s4P1Desc: "Driver distribusi, kurir pengiriman, dan teknisi servis bergerak setiap hari ke lokasi klien; mustahil kembali ke kantor cabang hanya untuk fingerprint.",
+        s4P2Title: "Surat Jalan, Bon BBM & Tiket Servis Manual Kacau",
+        s4P2Desc: "Bukti pengiriman (POD), bon bensin/tol, dan laporan kunjungan servis dicatat manual di kertas, memicu rekap berulang dan dispute penagihan lambat.",
+        s4P3Title: "Aplikasi Cloud Macet di Gudang DC & Site Klien",
+        s4P3Desc: "Aplikasi SaaS biasa langsung macet saat tim masuk distribution center (DC), area basement gedung klien, atau rute distribusi antarkota tanpa sinyal 4G.",
+        s4P4Title: "Biaya Lisensi ERP Terlalu Mahal untuk Tim Lapangan",
+        s4P4Desc: "Biaya lisensi ERP back-office terlalu mahal ($30–$70/user/bln) dan terlalu rumit untuk diberikan kepada puluhan hingga ratusan armada dan staf servis.",
+        s4SolutionHead: "Solusi KompakApps:",
+        s4SolutionText: "Menyatukan alur kerja mobile distribusi dan industri jasa lapangan ke dalam satu sistem operasi mobile offline-first yang tersinkronisasi otomatis ke Odoo ERP korporat.",
+
+        // Slide 7
+        s7Kicker: "Potensi Pasar • Landasan Pertumbuhan",
+        s7Headline: "80% Target Pasar berasal dari Klien yang telah bertahun-tahun mengoperasikan Odoo ERP",
+        s7Sub: "Seed funding memaksimalkan pemanfaatan instalasi Odoo yang sudah berjalan dengan memberikan nilai tambah mobile berkali lipat.",
+        s7TamLabel: "TAM (TOTAL PASAR ERP & HR)",
+        s7TamDesc: "64 Juta+ UMKM formal & informal di Indonesia yang beralih mendigitalkan operasional kerja dan payroll.",
+        s7SamLabel: "SAM (KOMUNITAS PENGGUNA ODOO)",
+        s7SamDesc: "~150.000 korporasi menengah di sektor Distribusi, Logistik, Jasa Servis, Trading, dan Retail yang memakai ERP.",
+        s7SomLabel: "SOM (80% KLIEN ODOO EKSISTING)",
+        s7SomDesc: "122 Akun Perusahaan: ~98 akun dikonversi langsung dari basis klien Odoo eksisting dan referral ekosistem.",
+        s7ExecTitle: "Rasionalisasi Uji Kelayakan:",
+        s7ExecDesc: "Target 122 klien bukanlah mencari dari nol di pasar umum. 80% dari target didapat dengan menawarkan modul frontline kepada perusahaan yang sudah terbiasa dengan Odoo, sehingga time-to-close lebih singkat dan retention rate mencapai 80%+.",
+
+        // Slide 8 & 10
+        s8Col2Title: "Flywheel Distribusi Ekosistem Odoo (80% Dominasi)",
+        s8Col2Desc: "Basis klien korporat KreatifSolution memberikan jalur pipa yang hangat dengan CAC rendah. Dibandingkan outbound cold-calling yang mahal, KompakApps langsung menyasar proyek ERP yang butuh solusi mobile.",
+        s10Headline: "80% Akuisisi ditopang oleh Pengguna Eksisting Odoo yang membutuhkan fungsi Frontline",
+        s10Sub: "Mengoptimalkan sistem yang sudah bertahun-tahun dipakai klien, memberikan nilai tambah tinggi dengan tarif bersahabat.",
+        s10Ch1: "Klien Eksisting Odoo (Captive)",
+        s10Ch1Deals: "25 transaksi",
+        s10Ch3: "Referral Komunitas & Partner Odoo",
+        s10Ch3Deals: "15 transaksi",
+        s10Ch2: "Inbound / Pencarian Organik",
+        s10Ch2Deals: "5 transaksi",
+        s10Ch4: "Iklan Digital Kinerja",
+        s10Ch4Deals: "3 transaksi",
+        s10Ch5: "Outbound Non-Odoo",
+        s10Ch5Deals: "2 transaksi",
+        s10P1Title: "Tarif Standar Tahunan (ACV)",
+        s10P1Val: "Rp60 Juta / tahun",
+        s10P2Title: "Komitmen 2 Tahun",
+        s10P2Val: "Rp110,4 Juta (Diskon 8%)",
+        s10P3Title: "Program Founding 3 Tahun",
+        s10P3Val: "Rp150 Juta di muka",
+
+        // Slide 20
+        s20ArbitrageTag: "Arbitrase Kelipatan Valuasi",
+        s20ArbitrageDesc: "Masuk Putaran Seed di <strong>7,2× ARR Tahun 1</strong> (Rp3,00 Miliar) • Berlipat menjadi <strong>2,9× ARR Tahun 3</strong> (Rp7,32 Miliar)",
+        s20ArbitrageHighlight: "• Batas keamanan signifikan di bawah median SaaS Asia Tenggara (10×–12×)",
+        s20StakeLabel: "Porsi 20%:",
+        s20BaseLabel: "5x ARR (Base Case)",
+        s20BaseGain: "+35,5% Keuntungan (1,36x MOIC)",
+        s20Summary: "Sensitivitas dihitung berdasarkan target ARR Tahun ke-3 sebesar Rp7,32 Miliar. Investasi awal Seed Rp5,40 Miliar menghasilkan potensi imbal hasil menarik pada kelipatan exit SaaS B2B standar regional."
+      },
+
+      en: {
+        toolbarSub: "| Confidential Investor Seed Deck • Executive Memorandum",
+        printBtn: "Export to PDF (16:9 Landscape)",
+
+        // Numeric Currency Translations
+        val_5_4B: "Rp5.40 Billion",
+        val_pre_21_6B: "Pre-money: Rp21.60 Billion",
+        val_equity_pct: "20.0% Stake",
+        val_7_32B: "Rp7.32 Billion",
+        val_13_58B: "Rp13.58 Billion",
+        val_60M: "Rp60.0 Million",
+        val_60M_exact: "Rp60,000,000",
+        val_150M: "Rp150 Million",
+        val_1_8B: "Rp1.80 Billion",
+        val_tam_54T: "Rp54.0 Trillion",
+        val_sam_9T: "Rp9.0 Trillion",
+        val_arr_y1: "Rp3.00 Billion",
+        val_arr_y2: "Rp5.40 Billion",
+        val_arr_y3: "Rp7.32 Billion",
+        val_mrr_y1: "Rp250 Million",
+        val_mrr_y2: "Rp450 Million",
+        val_mrr_y3: "Rp610 Million",
+        val_70M: "Rp70 Million / mo",
+        val_35M: "Rp35 Million / mo",
+        val_30M: "Rp30 Million / mo",
+        val_15M: "Rp15 Million / mo",
+        val_cash_rev_y1: "Rp3.00 Billion",
+        val_cash_rev_y2: "Rp5.40 Billion",
+        val_cash_rev_y3: "Rp7.32 Billion",
+        val_cash_var_y1: "(Rp600 Million)",
+        val_cash_var_y2: "(Rp720 Million)",
+        val_cash_var_y3: "(Rp816 Million)",
+        val_cash_sur_y1: "Rp2.40 Billion",
+        val_cash_sur_y2: "Rp7.08 Billion",
+        val_cash_sur_y3: "Rp13.58 Billion",
+        val_s20_v1: "Rp21.96 Billion",
+        val_s20_s1: "Rp4.39 Billion",
+        val_s20_v2: "Rp29.28 Billion",
+        val_s20_s2: "Rp5.85 Billion",
+        val_s20_v3: "Rp36.60 Billion",
+        val_s20_s3: "Rp7.32 Billion",
+        val_s20_v4: "Rp43.92 Billion",
+        val_s20_s4: "Rp8.78 Billion",
+        val_s20_v5: "Rp58.56 Billion",
+        val_s20_s5: "Rp11.71 Billion",
+        val_6M_bracket: "(Rp6,000,000)",
+        val_1_5M_bracket: "(Rp1,500,000)",
+        val_1_5M_bracket2: "(Rp1,500,000)",
+        val_3M_bracket: "(Rp3,000,000)",
+
+        // Slide 1
+        s1Kicker: "Executive Memorandum • Seed Investment Horizon",
+        s1Title: "KompakApps: The Unified Mobile Operating System for Frontline Teams",
+        s1Sub: "Maximizing years of Odoo ERP investments with advanced frontline mobile functionality at an affordable subscription.",
+        s1Badge: "CONFIDENTIAL • ROUND V6.0",
+        s1ThesisHead: "The Strategic Investment Thesis: 80% Target from Existing Odoo Base",
+        s1ThesisBody: "Hundreds of mid-market enterprises have invested heavily into Odoo ERP over multiple years, yet frontline teams in distribution, logistics, and field service remain isolated by physical punch clocks and paper forms. This seed round bridges that gap by converting an established Odoo base (80% target) into recurring KompakApps SaaS—unlocking exponential frontline ROI at minimal incremental cost.",
+        s1P1Title: "6-in-1 Platform",
+        s1P1Desc: "Attendance, leave, claims, payroll, CRM, PR.",
+        s1P2Title: "Offline-First Engine",
+        s1P2Desc: "Encrypted local SQLite with automatic sync.",
+        s1P3Title: "80% Existing Odoo Clients",
+        s1P3Desc: "Captive pipeline via PT Global Kreatif Inovasi (Odoo Gold Partner).",
+        s1TermBoxTitle: "Key Investment Metrics",
+        s1M1Label: "Seed Capital Ask",
+        s1M2Label: "Equity Stake",
+        s1M3Label: "Year 3 Target ARR",
+        s1M4Label: "Y3 Cash Surplus",
+        s1DrawDesc: "Rp150M/mo × 36 mo",
+        s1LogosDesc: "122 Active Enterprises",
+        s1CashSub: "Retained Customer Cash",
+
+        // Slide 2
+        s2Kicker: "Transaction Architecture • Executive Summary",
+        s2Headline: "A Rp150 Million monthly drawdown hard-caps OPEX while customer cash compounds on the balance sheet",
+        s2Sub: "Seed capital is structured as an operational facility rather than a lump-sum burn pool, protecting equity value.",
+        s2Box1Title: "SEED ROUND COMMITMENT",
+        s2Box1Desc: "Committed equity capital disbursed via Rp150 Million monthly drawdown over 36 months.",
+        s2Box2Title: "EQUITY VALUATION",
+        s2Box2Desc: "Pre-money valuation of Rp21.60 Billion; post-money fully diluted valuation of Rp27.00 Billion.",
+        s2Box3Title: "TARGET ANNUAL ACV",
+        s2Box3Desc: "Standard enterprise tier covering up to ~200 frontline seats with 80% cohort renewal.",
+        s2Box4Title: "YEAR 3 BALANCE SHEET CASH",
+        s2Box4Desc: "100% of customer revenue is retained in corporate treasury to accumulate non-dilutive liquidity.",
+        s2TrailingTitle: "TRAILING PROOF-OF-CONCEPT",
+        s2TrailingVal: "Rp240 Million (4 Deployments)",
+        s2TrailingDesc: "Technical & operational field validation in distribution, logistics, retail, and field services.",
+        s2ForwardTitle: "FORWARD ENTRY VALUATION MULTIPLES",
+        s2Y1MultipleLabel: "Year 1 ARR Multiple:",
+        s2Y3MultipleLabel: "Year 3 ARR Multiple:",
+        s2Y1Calc: "(Rp21.60B / Rp3.00B)",
+        s2Y3Calc: "(Rp21.60B / Rp7.32B)",
+        s2BenchmarkNote: "Competitive discount to regional B2B SaaS medians (10×–12× ARR).",
+        s2ThesisTitle: "Strategic Governance Implication:",
+        s2ThesisDesc: "By matching the Rp150 Million monthly drawdown directly to our fixed operational cost ceiling, operational cash-burn cannot spiral. Enterprise subscription receipts flow entirely into building a fortress balance sheet, empowering future dividend yields, self-funded expansion, or founder share buybacks.",
+
+        // Slide 3
+        s3Kicker: "Leadership • Founder-Market Fit",
+        s3Headline: "Led by a 10-year enterprise ERP and B2B SaaS operator with 35+ corporate deployments",
+        s3Sub: "Backed by PT Global Kreatif Inovasi (Official Odoo Gold Partner Indonesia, 95% satisfaction rating).",
+        s3FounderRole: "Founder & Chief Executive Officer",
+        s3Stat1: "35+ Verified Odoo Corporate References",
+        s3Stat2: "95% Client Retention & Satisfaction",
+        s3Stat3: "Official Odoo Gold Partner Leadership",
+        s3DeskeraDesc: "Spearheaded commercial sales operations and pipeline scaling for one of Southeast Asia's benchmark multi-tenant Cloud ERP platforms. Deep mastery of recurring SaaS unit economics, CAC payback rhythms, and enterprise sales cycles.",
+        s3KreatifDesc: "Built a leading Odoo Gold Partner in Indonesia (odoo.com/partners). Successfully architected and deployed complex ERP systems for 35+ corporate clients (JakLingko, PT Metindo Erasakti, PT Muliapack, PT Bumipa Medika, Hasta Prada) with a 95% satisfaction rating.",
+        s3MoatTitle: "80% Existing Odoo Client Focus:",
+        s3MoatDesc: 'KompakApps solves the exact friction for companies running Odoo for years: <em>"Odoo excels in the back-office, but field distribution and roving service execution was absent."</em> This captive base is our primary pipeline with near-zero CAC.',
+        s3Pod1: "Engineering Pod:",
+        s3Pod2: "Product & AI Pod:",
+        s3Pod3: "GTM & CS Pod:",
+
+        // Slide 4: FOCUS ON DISTRIBUTION & SERVICE INDUSTRY
+        s4Kicker: "Market Friction • Structural Problem",
+        s4Headline: "Conventional ERPs fail in distribution & field services, isolating 80% of frontline workforce",
+        s4Sub: "Logistics drivers, field canvassers, and roving technicians remain disconnected from core ERP, causing data blind spots and reconciliation lag.",
+        s4P1Title: "Fixed Biometrics Fail Mobile Fleets",
+        s4P1Desc: "Distribution drivers, delivery couriers, and field service crews move across client locations daily; physical office fingerprint clocks are useless.",
+        s4P2Title: "Chaotic Paper Delivery Slips & Service Orders",
+        s4P2Desc: "Proof-of-delivery (POD) sheets, fuel receipts, and customer service work orders are scribbled on paper, causing billing disputes and audit lag.",
+        s4P3Title: "Cloud Apps Stall in Warehouses & Basements",
+        s4P3Desc: "Standard white-collar SaaS apps crash when staff enter distribution centers (DC), client basement facilities, or transit routes without reliable 4G.",
+        s4P4Title: "Core ERP Licenses Prohibitive for Field Staff",
+        s4P4Desc: "Back-office ERP licenses ($30–$70/user/mo) are economically unviable and too complex to deploy across dozens of drivers and roving service crews.",
+        s4SolutionHead: "The KompakApps Intervention:",
+        s4SolutionText: "Unifying mobile workflows across distribution and service industries into an offline-first mobile operating system seamlessly synchronized with corporate Odoo ERP records.",
+
+        // Slide 7
+        s7Kicker: "Market Sizing • Opportunity Runway",
+        s7Headline: "80% of Target Adoption anchored by Established Odoo ERP Corporate Deployments",
+        s7Sub: "Seed investment activates years of existing ERP implementations with advanced mobile functionality.",
+        s7TamLabel: "TAM (TOTAL ERP & HR MARKET)",
+        s7TamDesc: "64M+ formal & informal MSMEs across Indonesia digitizing frontline operations, time tracking, and payroll.",
+        s7SamLabel: "SAM (ACTIVE ODOO BUSINESSES)",
+        s7SamDesc: "~150,000 mid-market enterprises in Distribution, Logistics, Field Service, Trading, and Retail utilizing ERP backbones.",
+        s7SomLabel: "SOM (80% EXISTING ODOO CLIENTS)",
+        s7SomDesc: "122 Enterprise Accounts: ~98 accounts directly converted from existing Odoo client base and partner ecosystem.",
+        s7ExecTitle: "Analytical Underwriting Rationale:",
+        s7ExecDesc: "Targeting 122 clients does not require cold outbound across unknown companies. 80% are secured by providing an essential mobile frontline extension to enterprises already running Odoo for years.",
+
+        // Slide 8 & 10
+        s8Col2Title: "Odoo Ecosystem Flywheel (80% Captive Focus)",
+        s8Col2Desc: "KreatifSolution's verified Odoo corporate base provides an immediate warm pipeline. Instead of expensive cold calling, KompakApps upgrades existing Odoo contracts into mobile frontline execution.",
+        s10Headline: "80% Acquisition anchored by Existing Odoo Users Needing Frontline Execution",
+        s10Sub: "Enhancing multi-year ERP installations with high-value mobile functionality at an economical recurring price.",
+        s10Ch1: "Existing Odoo Clients (Captive)",
+        s10Ch1Deals: "25 deals",
+        s10Ch3: "Odoo Community & Partner Referrals",
+        s10Ch3Deals: "15 deals",
+        s10Ch2: "Inbound / Organic Search",
+        s10Ch2Deals: "5 deals",
+        s10Ch4: "Performance Digital Ads",
+        s10Ch4Deals: "3 deals",
+        s10Ch5: "Outbound Non-Odoo",
+        s10Ch5Deals: "2 deals",
+        s10P1Title: "Standard Annual ACV",
+        s10P1Val: "Rp60.0 Million / year",
+        s10P2Title: "2-Year Commitment",
+        s10P2Val: "Rp110.4 Million (8% discount)",
+        s10P3Title: "3-Year Founding Offer",
+        s10P3Val: "Rp150.0 Million upfront",
+
+        // Slide 20
+        s20ArbitrageTag: "Valuation Multiple Arbitrage",
+        s20ArbitrageDesc: "Seed Entry at <strong>7.2× Year-1 ARR</strong> (Rp3.00B) • Compounding to <strong>2.9× Year-3 ARR</strong> (Rp7.32B baseline)",
+        s20ArbitrageHighlight: "• Significant safety margin below 10×–12× SEA SaaS medians",
+        s20StakeLabel: "20% Stake:",
+        s20BaseLabel: "5x ARR (Base Case)",
+        s20BaseGain: "+35.5% Gain (1.36x MOIC)",
+        s20Summary: "Sensitivity metrics are calculated against the Year 3 ARR baseline of Rp7.32 Billion. Seed initial investment of Rp5.40 Billion yields attractive upside under standard regional B2B SaaS exit multiples."
+      }
+    };
+
+    function switchSlideLanguage(lang) {
+      currentSlideLang = lang;
+      const btnEn = document.getElementById('btnDeckEn');
+      const btnId = document.getElementById('btnDeckId');
+
+      if (btnEn && btnId) {
+        if (lang === 'en') {
+          btnEn.classList.add('active');
+          btnId.classList.remove('active');
+        } else {
+          btnId.classList.add('active');
+          btnEn.classList.remove('active');
+        }
+      }
+
+      const dict = slideI18n[lang] || slideI18n.id;
+
+      // Update Toolbar
+      const sub = document.getElementById('toolbarSubtitle');
+      if (sub) sub.textContent = dict.toolbarSub;
+      const printLabel = document.getElementById('deckPrintLabel');
+      if (printLabel) printLabel.textContent = dict.printBtn;
+
+      // Update all elements with data-i18n attribute
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key]) {
+          el.innerHTML = dict[key];
+        }
+      });
+
+      updateSlideCharts(lang);
+    }
+
+    function updateSlideCharts(lang) {
+      if (chartChannelInstance) {
+        chartChannelInstance.data.labels = lang === 'id' 
+          ? ['Klien Odoo Eksisting (Captive)', 'Referral Partner Odoo', 'Inbound / SEO', 'Iklan Digital', 'Outbound Non-Odoo']
+          : ['Existing Odoo Base (Captive)', 'Odoo Partner Referrals', 'Inbound / SEO', 'Performance Ads', 'Outbound Non-Odoo'];
+        chartChannelInstance.options.plugins.tooltip.callbacks.label = function (ctx) {
+          const deals = Math.round(ctx.raw * 0.5);
+          return lang === 'id'
+            ? ` ${ctx.label}: ${ctx.raw}% (${deals} transaksi/thn)`
+            : ` ${ctx.label}: ${ctx.raw}% (${deals} deals/yr)`;
+        };
+        chartChannelInstance.update();
+      }
+
+      if (chartArrInstance) {
+        chartArrInstance.data.labels = lang === 'id' ? ['Tahun 1', 'Tahun 2', 'Tahun 3'] : ['Year 1', 'Year 2', 'Year 3'];
+        chartArrInstance.data.datasets[0].label = lang === 'id' ? 'ARR (Miliar Rupiah)' : 'ARR (Billion IDR)';
+        chartArrInstance.data.datasets[1].label = lang === 'id' ? 'Klien Baru' : 'New Enterprise Logos';
+        chartArrInstance.data.datasets[2].label = lang === 'id' ? 'Klien Perpanjangan (80%)' : 'Renewed Accounts (80%)';
+        chartArrInstance.options.scales.yArr.title.text = lang === 'id' ? 'ARR (Rp Miliar)' : 'ARR (Rp Billion)';
+        chartArrInstance.options.scales.yArr.ticks.callback = function (val) {
+          return lang === 'id' ? 'Rp' + val + ' Miliar' : 'Rp' + val + 'B';
+        };
+        chartArrInstance.options.scales.yCustomers.title.text = lang === 'id' ? 'Jumlah Akun Perusahaan Aktif' : 'Active Enterprise Accounts';
+        chartArrInstance.options.plugins.tooltip.callbacks.label = function (context) {
+          if (context.dataset.label.includes('ARR')) {
+            const decVal = lang === 'id' ? context.parsed.y.toFixed(2).replace('.', ',') : context.parsed.y.toFixed(2);
+            return lang === 'id' 
+              ? ` ARR: Rp${decVal} Miliar` 
+              : ` ARR: Rp${decVal} Billion`;
+          }
+          return lang === 'id' 
+            ? ` ${context.dataset.label}: ${context.parsed.y} Perusahaan` 
+            : ` ${context.dataset.label}: ${context.parsed.y} Accounts`;
+        };
+        chartArrInstance.update();
+      }
+
+      if (chartCashInstance) {
+        chartCashInstance.data.labels = lang === 'id' ? ['Mulai', 'Akhir T1', 'Akhir T2', 'Akhir T3'] : ['Start', 'End Y1', 'End Y2', 'End Y3'];
+        chartCashInstance.data.datasets[0].label = lang === 'id' ? 'Cadangan Kas Akumulatif' : 'Accumulated Cash Reserves';
+        chartCashInstance.data.datasets[1].label = lang === 'id' ? 'Pendapatan Klien Tahunan' : 'Annual Customer Revenue';
+        chartCashInstance.data.datasets[2].label = lang === 'id' ? 'Pagu OPEX Tetap (Rp1,80 Miliar/thn)' : 'Fixed OPEX Drawdown (Rp1.8B/yr)';
+        chartCashInstance.options.scales.y.ticks.callback = function (val) {
+          return lang === 'id' ? 'Rp' + val + ' Miliar' : 'Rp' + val + 'B';
+        };
+        chartCashInstance.options.plugins.tooltip.callbacks.label = function (ctx) {
+          const dec = lang === 'id' ? ctx.parsed.y.toFixed(2).replace('.', ',') : ctx.parsed.y.toFixed(2);
+          return lang === 'id' 
+            ? ` ${ctx.dataset.label}: Rp${dec} Miliar` 
+            : ` ${ctx.dataset.label}: Rp${dec} Billion`;
+        };
+        chartCashInstance.update();
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', function () {
+      const ctxChannel = document.getElementById('slideChannelChart');
+      if (ctxChannel) {
+        chartChannelInstance = new Chart(ctxChannel.getContext('2d'), {
+          type: 'doughnut',
+          data: {
+            labels: ['Klien Odoo Eksisting (Captive)', 'Referral Partner Odoo', 'Inbound / SEO', 'Iklan Digital', 'Outbound Non-Odoo'],
+            datasets: [{
+              data: [50, 30, 10, 6, 4],
+              backgroundColor: ['#1392C6', '#0284C7', '#38BDF8', '#F59E0B', '#0F172A'],
+              borderWidth: 1.5,
+              borderColor: '#FFFFFF'
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { display: false },
+              tooltip: {
+                callbacks: {
+                  label: function (ctx) {
+                    return ` ${ctx.label}: ${ctx.raw}% (${Math.round(ctx.raw * 0.5)} transaksi/thn)`;
+                  }
+                }
+              }
+            },
+            cutout: '72%'
+          }
+        });
+      }
+
+      const ctxArr = document.getElementById('slideArrChart');
+      if (ctxArr) {
+        chartArrInstance = new Chart(ctxArr.getContext('2d'), {
+          type: 'bar',
+          data: {
+            labels: ['Tahun 1', 'Tahun 2', 'Tahun 3'],
+            datasets: [
+              {
+                type: 'line',
+                label: 'ARR (Miliar Rupiah)',
+                data: [3.00, 5.40, 7.32],
+                borderColor: '#1392C6',
+                backgroundColor: 'rgba(19, 146, 198, 0.08)',
+                borderWidth: 2.5,
+                tension: 0.15,
+                pointRadius: 4,
+                pointBackgroundColor: '#1392C6',
+                yAxisID: 'yArr'
+              },
+              {
+                type: 'bar',
+                label: 'Klien Baru',
+                data: [50, 50, 50],
+                backgroundColor: '#94A3B8',
+                borderRadius: 2,
+                yAxisID: 'yCustomers'
+              },
+              {
+                type: 'bar',
+                label: 'Klien Perpanjangan (80%)',
+                data: [0, 40, 72],
+                backgroundColor: '#0284C7',
+                borderRadius: 2,
+                yAxisID: 'yCustomers'
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            interaction: { mode: 'index', intersect: false },
+            plugins: {
+              legend: {
+                position: 'top',
+                labels: { color: '#334155', font: { size: 10, family: 'Plus Jakarta Sans', weight: '600' } }
+              },
+              tooltip: {
+                callbacks: {
+                  label: function (context) {
+                    if (context.dataset.label.includes('ARR')) {
+                      return ` ${context.dataset.label}: Rp${context.parsed.y.toFixed(2).replace('.', ',')} Miliar`;
+                    }
+                    return ` ${context.dataset.label}: ${context.parsed.y} Perusahaan`;
+                  }
+                }
+              }
+            },
+            scales: {
+              x: {
+                grid: { color: 'rgba(226, 232, 240, 0.5)' },
+                ticks: { color: '#64748B', font: { family: 'Plus Jakarta Sans', size: 10.5, weight: '600' } }
+              },
+              yArr: {
+                type: 'linear',
+                position: 'right',
+                title: {
+                  display: true,
+                  text: 'ARR (Rp Miliar)',
+                  color: '#1392C6',
+                  font: { size: 10.5, weight: 'bold', family: 'Plus Jakarta Sans' }
+                },
+                grid: { drawOnChartArea: false },
+                ticks: {
+                  color: '#1392C6',
+                  font: { size: 10 },
+                  callback: (val) => 'Rp' + val + ' Miliar'
+                },
+                suggestedMax: 9
+              },
+              yCustomers: {
+                type: 'linear',
+                position: 'left',
+                stacked: true,
+                title: {
+                  display: true,
+                  text: 'Jumlah Akun Perusahaan Aktif',
+                  color: '#475569',
+                  font: { size: 10.5, family: 'Plus Jakarta Sans', weight: '600' }
+                },
+                grid: { color: 'rgba(226, 232, 240, 0.5)' },
+                ticks: { color: '#64748B', font: { size: 10 } },
+                suggestedMax: 150
+              }
+            }
+          }
+        });
+      }
+
+      const ctxCash = document.getElementById('slideCashChart');
+      if (ctxCash) {
+        chartCashInstance = new Chart(ctxCash.getContext('2d'), {
+          type: 'line',
+          data: {
+            labels: ['Mulai', 'Akhir T1', 'Akhir T2', 'Akhir T3'],
+            datasets: [
+              {
+                label: 'Cadangan Kas Akumulatif',
+                data: [0, 2.40, 7.08, 13.58],
+                borderColor: '#D97706',
+                backgroundColor: 'rgba(217, 119, 6, 0.08)',
+                borderWidth: 2.5,
+                fill: true,
+                tension: 0.2,
+                pointRadius: 4,
+                pointBackgroundColor: '#D97706'
+              },
+              {
+                label: 'Pendapatan Klien Tahunan',
+                data: [0, 3.00, 5.40, 7.32],
+                borderColor: '#1392C6',
+                borderDash: [3, 3],
+                borderWidth: 1.8,
+                tension: 0.15,
+                pointRadius: 3,
+                pointBackgroundColor: '#1392C6'
+              },
+              {
+                label: 'Pagu OPEX Tetap (Rp1,80 Miliar/thn)',
+                data: [1.8, 1.8, 1.8, 1.8],
+                borderColor: '#94A3B8',
+                borderWidth: 1.2,
+                pointRadius: 0
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                position: 'top',
+                labels: { color: '#334155', font: { size: 9.5, family: 'Plus Jakarta Sans' } }
+              },
+              tooltip: {
+                callbacks: {
+                  label: (ctx) => ` ${ctx.dataset.label}: Rp${ctx.parsed.y.toFixed(2).replace('.', ',')} Miliar`
+                }
+              }
+            },
+            scales: {
+              x: {
+                grid: { color: 'rgba(226, 232, 240, 0.5)' },
+                ticks: { color: '#64748B', font: { size: 9.5, family: 'Plus Jakarta Sans' } }
+              },
+              y: {
+                grid: { color: 'rgba(226, 232, 240, 0.5)' },
+                ticks: {
+                  color: '#64748B',
+                  font: { size: 9.5 },
+                  callback: (val) => 'Rp' + val + ' Miliar'
+                },
+                suggestedMax: 15
+              }
+            }
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>
